@@ -1,0 +1,7 @@
+# IDEs
+node_modules
+.env
+testar-db.js
+.DS_Store
+*.log
+data/acessos.json

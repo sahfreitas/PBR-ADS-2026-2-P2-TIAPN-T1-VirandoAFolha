@@ -4,14 +4,6 @@ _Apresente aqui os principais indicadores de desempenho e algumas metas para o p
 
 _Usar o seguinte modelo:_
 
-<!-- EXEMPLO DO TEMPLATE (mantido para consulta):
-| **Indicador** | **Objetivos** | **Descrição** | **Fonte de dados** | **Fórmula de cálculo** |
-| ---           | ---           | ---           | ---             | ---             |
-| Percentual de reclamações | Avaliar quantitativamente as reclamações | Percentual de reclamações em relação ao total de atendimentos | Tabela Reclamações | número total de reclamações / número total de atendimentos |
-| Taxa de requisições atendidas | Melhorar a prestação de serviços medindo a porcentagem de requisições atendidas| Mede a % de requisições atendidas na semana | Tabela Solicitações | (número de requisições atendidas / número total de requisições) * 100 |
-| Taxa de entrega de material | Manter controle sobre os materiais que estão sendo entregues | Mede % de material entregue dentro do mês | Tabela Pedidos | (número de pedidos entregues / número total de pedidos) * 100 |
--->
-
 | **Indicador** | **Objetivos** | **Descrição** | **Fonte de dados** | **Fórmula de cálculo** |
 | ---           | ---           | ---           | ---             | ---             |
 | Tempo médio de permanência | Acompanhar quanto tempo as crianças ficam e a demanda do atendimento (Processo 1) | Média, em minutos, do tempo entre a entrada e a saída dos atendimentos finalizados | Tabela ATENDIMENTO (`hora_entrada`, `hora_saida`) | soma dos minutos de permanência / número de atendimentos finalizados |

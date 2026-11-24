@@ -1,6 +1,6 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Contexto.md"> Documentação de Contexto</a></span>
+<span style="color:red">Pré-requisitos: <a href=""> Documentação de Contexto</a></span>
 
 Esta especificação parte dos dois processos mapeados na visita à Brinquedoteca Barreiro: o atendimento da criança (entrada, permanência e saída) e a organização de festas e eventos. Os dois estão detalhados em [3-Modelagem-Processos-Negócio](3-Modelagem-Processos-Negócio.md), com os problemas do processo atual (AS-IS) que o sistema precisa resolver.
 
@@ -110,17 +110,6 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | **Coordenação** (Marta) | Ver o painel do dia (crianças presentes, valores a receber, eventos) | Acompanhar a operação em um só lugar |
 | Coordenação | Cadastrar e editar funcionários, funções, papéis, supervisor e acesso | Controlar quem usa o sistema e com que permissão |
 | Coordenação | Manter o catálogo de serviços das festas | Oferecer valores e serviços atualizados nos orçamentos |
-
-> ⚠️ **CONFERIR:** as histórias foram escritas a partir das funcionalidades que aparecem nas evidências da Atividade 4. Se o grupo já tinha histórias de usuário aprovadas, use essas.
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 
 

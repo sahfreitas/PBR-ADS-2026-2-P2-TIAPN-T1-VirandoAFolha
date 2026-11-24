@@ -2,23 +2,27 @@ cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: Virando A Folha
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+  - family-names: Braga Nery De Lima
+    given-names: Luísa
+  - family-names: De Oliveira Pinholate
+    given-names: Maria Luiza
+  - family-names: Da Silva
+    given-names: Melissa Vitor
+  - family-names: Da Cruz Freitas
+    given-names: Sara
+  - family-names: De Morais dos Santos
+    given-names: Sophia Emanuelle
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Albergaria Amaral
+    given-names: Gleisson
     keywords:
-    - 
+    - Brinquedoteca
+    - Sistema de gestão
+    - Banco de dados relacional
+    - BPMN
+    - Aplicação web
 repository-code: 
 license: CC-BY-4.0
 version: 1.0.0
-date-released:
+date-released: 2026-11-24

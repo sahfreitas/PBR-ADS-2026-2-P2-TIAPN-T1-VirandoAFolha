@@ -1,6 +1,5 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
 
 **Virando a Folha** é um sistema web que troca os controles em papel da **Brinquedoteca Barreiro** (Belo Horizonte – MG) por uma aplicação única, com acesso separado para a equipe e para os responsáveis pelas crianças. O lema do projeto é *"Do papel ao digital, porque brincar é coisa séria"*.
 
@@ -14,21 +13,10 @@ O trabalho foi desenvolvido na disciplina **Trabalho Interdisciplinar: Aplicaç�
 - Sara da Cruz Freitas
 - Sophia Emanuelle de Morais dos Santos
 
-**Repositório:** <https://github.com/melissavitor/VirandoAFolha>
+**Repositório:** <https://github.com/sahfreitas/PBR-ADS-2026-2-P2-TIAPN-T1-VirandoAFolha.git>
 
-> ⚠️ **CONFERIR:** o link do repositório acima veio do documento de evidências da Atividade 4. Se o repositório oficial da entrega for outro, troque o link aqui.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
-
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
 **Contexto.** A Brinquedoteca Barreiro atua em recreação e entretenimento infantil e fica na Rua Rodolfo Jacob, 76, bairro Barreiro, em Belo Horizonte. A equipe é formada por coordenação, recepção e monitoria. Hoje as fichas de entrada e saída, a cobrança por tempo, os orçamentos de festas e a escala da equipe são controlados em papel.
 
@@ -45,13 +33,6 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
-
 **Objetivo geral:** desenvolver um sistema web com banco de dados relacional que resolva os problemas dos dois processos acima, substituindo as fichas e anotações em papel da Brinquedoteca Barreiro.
 
 **Objetivos específicos:**
@@ -63,12 +44,6 @@ Apresente também alguns (pelo menos 2) objetivos específicos dependendo de ond
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 A observação dos processos na prática mostrou que o BPMN deixa gargalos e retrabalho visíveis, e que melhorar nem sempre exige tecnologia complexa: padronizar o atendimento, registrar horários e usar checklists já reduz erros. Por isso a solução foi pensada para a realidade da Brinquedoteca e evita recursos desnecessariamente complexos.
 
@@ -110,5 +85,3 @@ O sistema atende dois grupos: a **equipe da Brinquedoteca**, que usa o sistema n
 | PUC Minas / professor | Avaliação da atividade de extensão |
 
 **Acesso e facilidade de uso.** O sistema funciona tanto no **celular** quanto no **computador**, e é rápido e fácil de acessar. Isso atende os dois grupos: a equipe pode usá-lo no balcão ou durante as festas, e os responsáveis podem acessá-lo de onde estiverem, sem precisar instalar nada.
-
-> ⚠️ **FALTA (opcional):** o conhecimento prévio da equipe e das famílias com tecnologia (por exemplo, se a equipe já usava computador no balcão antes do sistema) não aparece nos arquivos enviados. Se o grupo anotou isso na visita, acrescente aqui. Se o grupo fez diagramas de personas, coloque a imagem aqui também.

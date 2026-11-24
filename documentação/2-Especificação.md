@@ -168,9 +168,3 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |03| O banco deve ser MySQL; como o MySQL não permite CHECK que consulte outras linhas ou a data atual, essas regras foram implementadas com triggers |
 |04| A solução deve ser simples e adequada à realidade da Brinquedoteca, evitando recursos desnecessariamente complexos |
 |05| O trabalho é feito em grupo de cinco integrantes e depende do acesso à equipe da Brinquedoteca para validar os processos |
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)

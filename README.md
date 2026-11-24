@@ -96,12 +96,18 @@ Acesse **http://localhost:3000**. Se tudo estiver certo, o terminal mostra `Cone
 
 
 ## Histórico de versões
-
+ 
 * 1.0.0
-    * Sistema web com cadastro de responsáveis e crianças, atendimentos, eventos, serviços, funcionários, painel e login com perfis de acesso.
-* 0.1.1
-    * CHANGE: Atualização das documentações. Código permaneceu inalterado.
-* 0.1.0
-    * Implementação da funcionalidade X pertencente ao processo P.
-* 0.0.1
-    * Trabalhando na modelagem do processo de negócio.
+    * DOCS: README completo e documentação do projeto.
+    * Banco de dados populado com dados fictícios de exemplo para testes.
+* 0.4.0
+    * Portal do responsável: o responsável acessa o sistema e vê apenas o que é dele.
+    * Login por CPF e cadastro de segundo responsável.
+* 0.3.0
+    * Front-end com a identidade visual da Brinquedoteca Barreiro.
+    * Acesso de usuários com perfis diferentes (coordenação, funcionários e responsáveis).
+* 0.2.0
+    * Conexão com o MySQL, com `schema.sql` e `seed.sql`.
+    * Back-end com rotas e um front-end simples para testar as funcionalidades.
+* 0.1.0 
+    * Estrutura base do projeto (Node.js + Express).

@@ -3,8 +3,6 @@
 
 <span style="color:red">Pré-requisitos: <a href="4-Projeto-Solucao.md"> Projeto da Solução</a></span>
 
-_Visão geral da interação do usuário por meio das telas do sistema. Apresente as principais interfaces da plataforma._
-
 O sistema tem acesso separado para a equipe e para os responsáveis. A tela de login pede CPF e senha, e o menu lateral muda conforme o perfil. Os prints abaixo vêm das evidências da Atividade 4 e foram feitos com os usuários de teste da tabela a seguir.
 
 | Perfil | Usuário de teste | CPF de login | O que enxerga |

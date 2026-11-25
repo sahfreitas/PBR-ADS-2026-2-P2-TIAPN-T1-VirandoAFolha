@@ -19,7 +19,7 @@ O sistema entrega, com evidências nas telas e no banco:
 - O sistema foi demonstrado com dados e usuários de teste.
 
 
-**Sugestões de novas linhas de estudo (sugestões a conferir com o grupo).
+**Novas linhas de estudo**
 - Medir os indicadores da seção 7 com dados reais e comparar com a situação anterior (AS-IS).
 - Hospedar o sistema online.
 - Incluir relatórios, como faturamento por período e serviços mais contratados.

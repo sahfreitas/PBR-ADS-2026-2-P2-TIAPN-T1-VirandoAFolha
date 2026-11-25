@@ -4,16 +4,6 @@
 
 ## 4.1. Arquitetura da solução
 
-
-......  COLOQUE AQUI O SEU TEXTO E O DIAGRAMA DE ARQUITETURA .......
-
- Inclua um diagrama da solução e descreva os módulos e as tecnologias
- que fazem parte da solução. Discorra sobre o diagrama.
- 
- **Exemplo do diagrama de Arquitetura**:
- 
- ![Exemplo de Arquitetura](./imagem/arquitetura-exemplo.png)
-
 O Virando a Folha é uma aplicação web em três camadas: o navegador (front-end), um servidor de aplicação (back-end) e o banco de dados relacional.
 
 ```mermaid

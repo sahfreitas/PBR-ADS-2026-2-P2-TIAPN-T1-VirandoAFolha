@@ -14,8 +14,6 @@ O sistema tem acesso separado para a equipe e para os responsáveis. A tela de l
 | Monitoria | Camila (monitora) e Rafael (monitor) | 222.333.444-03 e 222.333.444-04 | Mesmas áreas da equipe, com escala de festas e checklists; Serviços somente leitura |
 | Responsável | Júlia, Felipe, entre outros | 101.010.101-01, 999.999.999-99 | Meus dados e crianças, Meus eventos e Solicitar evento |
 
-> ⚠️ **CONFERIR:** a senha de teste da equipe aparece na própria tela de login do sistema, por isso não foi escrita aqui. Se o repositório for público, avalie se quer deixar esses CPFs de teste na documentação.
-
 ## 6.1. Tela principal do sistema
 
 _Descrição da tela principal do sistema._

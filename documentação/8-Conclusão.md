@@ -1,6 +1,6 @@
 ## 8. Conclusão
 
-<span style="color:red">Pré-requisitos: <a href="6-Interface-Sistema.md"> Projeto da Solução</a></span>
+<span style="color:red">Pré-requisitos: <a href="../README.md#pré-requisitos"> README do projeto</a></span>
 
 **Síntese dos resultados.** O trabalho partiu da observação de dois processos da Brinquedoteca Barreiro, atendimento da criança e festas e eventos, que dependiam de papel e de muitas idas e vindas entre responsável, recepção, monitoria e equipe. A análise AS-IS apontou os gargalos (4 atividades manuais na entrada, cobrança dependente da liberação do monitor, orçamento sem padrão e sem repasse formal à equipe). A proposta TO-BE foi implementada no sistema **Virando a Folha**, com front-end, back-end e banco relacional de 18 tabelas na 3FN.
 

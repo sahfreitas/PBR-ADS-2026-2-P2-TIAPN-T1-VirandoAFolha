@@ -13,11 +13,11 @@ Hoje a Brinquedoteca não usa um sistema: as fichas de entrada e saída, a cobra
 
 > **Notação dos diagramas:** o responsável (processo 1) e o cliente (processo 2) ficam em uma **piscina separada**, porque estão fora da Brinquedoteca. As raias (Recepção, Monitor, Equipe) ficam dentro da piscina da Brinquedoteca Barreiro. Dentro de uma piscina, as atividades se ligam por **fluxo de sequência** (linha cheia). Entre as piscinas, a comunicação é feita por **fluxo de mensagem** (linha pontilhada).
 
-![BPMN AS-IS do processo de atendimento](imagem/bpmn-p1-as-is.png "BPMN AS-IS: processo de atendimento da Brinquedoteca")
+![BPMN AS-IS do processo de atendimento](imagem/process-bpmn/processo1-AS-IS.png "BPMN AS-IS: processo de atendimento da Brinquedoteca")
 
 **Processo 2: festas e eventos.** O cliente pede informações sobre a festa e a recepção apresenta as opções. A recepção verifica a disponibilidade da data. Se a data não está disponível, informa a indisponibilidade, oferece outras datas e repete a verificação. Se está disponível, levanta as informações do evento, define os serviços contratados e elabora o orçamento. O cliente analisa e decide: se não aprova, a negociação é encerrada. Se aprova, a recepção confirma a reserva e registra os serviços contratados. A equipe prepara o espaço, realiza o evento e organiza o espaço depois, **sem repasse formal das informações e sem checklists**.
 
-![BPMN AS-IS de festas e eventos](imagem/bpmn-p2-as-is.png "BPMN AS-IS: organização de festas e eventos")
+![BPMN AS-IS de festas e eventos](imagem/process-bpmn/processo2-AS-IS.png "BPMN AS-IS: organização de festas e eventos")
 
 **Gargalos identificados:**
 
@@ -32,13 +32,13 @@ A proposta é um sistema web simples, que apoia a equipe sem sobrecarregá-la, c
 
 **Processo 1 (TO-BE).** A entrada fica rápida: a recepção só identifica ou cadastra a criança e registra o horário de entrada, que é marcado automaticamente. A recepção e o monitor passam a ser ligados pelo registro dos horários. Quando o responsável pede a retirada, a recepção registra o horário de saída e o sistema calcula o valor na hora, sem esperar a liberação do monitor. A recepção informa o valor, confirma o pagamento e encerra o atendimento.
 
-![BPMN TO-BE do processo de atendimento](imagem/bpmn-p1-to-be.png "BPMN TO-BE: processo de atendimento da Brinquedoteca")
+![BPMN TO-BE do processo de atendimento](imagem/process-bpmn/processo1-TO-BE.png "BPMN TO-BE: processo de atendimento da Brinquedoteca")
 
 *Oportunidades de melhoria:* menos atividades manuais na entrada (de 4 atividades para 2: identificar ou cadastrar a criança e registrar o horário de entrada), cobrança disparada ao fim do tempo, menos fila, menos atraso e menos retrabalho.
 
 **Processo 2 (TO-BE).** A recepção registra as informações do evento e consulta a agenda. Com a data disponível, seleciona a modalidade e os serviços e elabora o orçamento; sem a data, oferece outras datas. O cliente analisa o orçamento. Se aprova, a recepção confirma a reserva, registra os serviços contratados e **disponibiliza as informações para a equipe** por meio de uma ficha de briefing. A equipe faz o **checklist pré-evento**, prepara o espaço, realiza o evento, faz o **checklist pós-evento** e organiza o espaço.
 
-![BPMN TO-BE de festas e eventos](imagem/bpmn-p2-to-be.png "BPMN TO-BE: organização de festas e eventos")
+![BPMN TO-BE de festas e eventos](imagem/process-bpmn/processo2-TO-BE.png "BPMN TO-BE: organização de festas e eventos")
 
 *Oportunidades de melhoria:* formulário de cadastro e orçamento padronizados, ficha de briefing repassada à equipe e checklists antes e depois da festa, com menos desencontro sobre o que foi contratado.
 

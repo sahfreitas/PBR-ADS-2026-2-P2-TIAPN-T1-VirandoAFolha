@@ -1,6 +1,6 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href=""> Documentação de Contexto</a></span>
+<span style="color:red">Pré-requisitos: <a href="../README.md#pré-requisitos"> README do projeto</a></span>
 
 Esta especificação parte dos dois processos mapeados na visita à Brinquedoteca Barreiro: o atendimento da criança (entrada, permanência e saída) e a organização de festas e eventos. Os dois estão detalhados em [3-Modelagem-Processos-Negócio](3-Modelagem-Processos-Negócio.md), com os problemas do processo atual (AS-IS) que o sistema precisa resolver.
 
@@ -16,7 +16,7 @@ Para transformar esses problemas em requisitos, foram usadas as seguintes técni
 
 As personas abaixo representam quem mais se beneficia com um atendimento mais ágil na Brinquedoteca Barreiro. Elas partem dos papéis que aparecem nas raias dos dois processos BPMN (recepção, monitor, coordenação e responsável) e dos problemas observados no processo atual (AS-IS).
 
-![Personas do Virando a Folha](imagem/personas.png "Personas do Virando a Folha")
+![Personas do Virando a Folha](imagem/personas.webp "Personas do Virando a Folha")
 
 ### Persona 1: Larissa Moreira, 29 anos (Recepcionista)
 

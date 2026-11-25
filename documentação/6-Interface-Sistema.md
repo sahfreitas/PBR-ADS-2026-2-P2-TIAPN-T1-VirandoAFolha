@@ -1,7 +1,6 @@
-
 # 6. Interface do Sistema
 
-<span style="color:red">Pré-requisitos: <a href="4-Projeto-Solucao.md"> Projeto da Solução</a></span>
+<span style="color:red">Pré-requisitos: <a href="../README.md#pré-requisitos"> README do projeto</a></span>
 
 O sistema tem acesso separado para a equipe e para os responsáveis. A tela de login pede CPF e senha, e o menu lateral muda conforme o perfil. Os prints abaixo vêm das evidências da Atividade 4 e foram feitos com os usuários de teste da tabela a seguir.
 
@@ -186,10 +185,31 @@ Os prints mostram o banco preenchido no MySQL Workbench.
 
 ![Tabela CRIANCA](imagem/telas/fig62.jpg "Figura 62. Tabela CRIANCA")
 
-> ⚠️ **REFAZER PRINT (banco):** nos prints das Figuras 58 a 61 aparecem, na barra de abas do Workbench, resultados de `TELEFONE_CRIANCA`. Essa tabela **não existe** no modelo final de 18 tabelas (o telefone é do responsável, em TELEFONE_PESSOA). Refaça esses prints sem essa aba, ou corte a imagem, para não parecer que o banco tem uma tabela a mais.
->
-> ⚠️ **FALTA PRINT (banco):** só 7 das 18 tabelas têm print. Faltam prints (`SELECT * FROM ...`) das tabelas **RESPONSAVEL, RECEPCIONISTA, RESPONSAVEL_ADICIONAL, ATENDIMENTO, ACOMPANHA, EVENTO, FICHA_BRIEFING, CHECKLIST_EVENTO, SERVICO, PARTICIPACAO, CONTRATACAO e CONFIGURACAO**. A contagem de linhas (Figura 56) mostra que ATENDIMENTO, EVENTO e SERVICO têm dados, mas não há print das tabelas em si.
->
+![Tabela RESPONSAVEL](imagem/telas/fig63.png "Figura 63. Tabela RESPONSAVEL")
+
+![Tabela RECEPCIONISTA](imagem/telas/fig64.png "Figura 64. Tabela RECEPCIONISTA")
+
+![Tabela RESPONSAVEL_ADICIONAL](imagem/telas/fig65.png "Figura 65. Tabela RESPONSAVEL_ADICIONAL")
+
+![Tabela ATENDIMENTO](imagem/telas/fig66.png "Figura 66. Tabela ATENDIMENTO")
+
+![Tabela ACOMPANHA](imagem/telas/fig67.png "Figura 67. Tabela ACOMPANHA")
+
+![Tabela EVENTO](imagem/telas/fig68.png "Figura 68. Tabela EVENTO")
+
+![Tabela FICHA_BRIEFING](imagem/telas/fig69.png "Figura 69. Tabela FICHA_BRIEFING")
+
+![Tabela CHECKLIST_EVENTO](imagem/telas/fig70.png "Figura 70. Tabela CHECKLIST_EVENTO")
+
+![Tabela SERVICO](imagem/telas/fig71.png "Figura 71. Tabela SERVICO")
+
+![Tabela PARTICIPACAO](imagem/telas/fig72.png "Figura 72. Tabela PARTICIPACAO")
+
+![Tabela CONTRATACAO](imagem/telas/fig73.png "Figura 73. Tabela CONTRATACAO")
+
+![Tabela CONFIGURACAO](imagem/telas/fig74.png "Figura 74. Tabela CONFIGURACAO")
+
+
 > ⚠️ **FALTA PRINT (telas):**
 > - Passo 3 (Serviços) da solicitação de evento feita pelo responsável.
 > - Tela do responsável com o evento já **confirmado** (acompanhamento da situação).

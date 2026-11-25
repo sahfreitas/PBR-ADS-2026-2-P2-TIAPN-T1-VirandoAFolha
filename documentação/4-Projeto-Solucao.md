@@ -1,6 +1,6 @@
 ## 4. Projeto da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Modelagem-Processos-Negócio.md"> Modelagem do Processo de Negocio</a></span>
+<span style="color:red">Pré-requisitos: <a href="../README.md#pré-requisitos"> README do projeto</a></span>
 
 ## 4.1. Arquitetura da solução
 
@@ -310,7 +310,7 @@ O script abaixo é o `schema.sql` do projeto, que fica em `código-fonte/db/data
 
 ##### Diagrama do modelo físico (EER)
 
-Diagrama gerado por engenharia reversa do banco criado pelo script abaixo (linha cheia = relacionamento identificador, a FK faz parte da PK; linha tracejada = FK comum; "pé de galinha" no lado "muitos").
+Diagrama do modelo físico, gerado a partir do script abaixo (linha cheia = relacionamento identificador, a FK faz parte da PK; linha tracejada = FK comum; "pé de galinha" no lado "muitos").
 
 ![Diagrama EER do modelo físico (18 tabelas)](imagem/modelo-fisico-eer.png "Modelo físico (EER) do banco brinquedoteca")
 

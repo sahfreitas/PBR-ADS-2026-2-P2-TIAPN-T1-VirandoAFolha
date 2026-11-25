@@ -7,11 +7,6 @@ Foram modelados **dois processos** da Brinquedoteca Barreiro, observados na visi
 
 ### 3.1. Modelagem da situação atual (Modelagem AS IS)
 
-_Apresente uma descrição textual de como os sistemas atuais resolvem o problema que se propõe a resolver.  Caso sua proposta seja inovadora e não existam processos claramente definidos, **apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente**, mesmo que não se utilize tecnologia computacional._
-
-Com o tema do projeto definido, escolham alguns processos neste contexto de negócios. Para ilustrar potenciais ganhos com a automatização, imaginem processos manuais, ineficientes e/ou com muitas idas e vindas, gerando, assim, retrabalho.
-Colem aqui os modelos dos processos atuais (modelo AS-IS), elaborados com o apoio da ferramenta baseada em BPMN utilizada na disciplina.
-
 Hoje a Brinquedoteca não usa um sistema: as fichas de entrada e saída, a cobrança por tempo, os orçamentos de festas e a escala da equipe são controlados em papel.
 
 **Processo 1: atendimento, permanência e saída da criança.** O responsável chega com a criança e solicita o atendimento. A recepção realiza o atendimento, verifica as informações da criança, registra a entrada e encaminha a criança para a brinquedoteca. O monitor recebe a criança e a acompanha durante a permanência. Quando o tempo termina, o monitor libera a criança para retirada e só então a recepção calcula o valor, informa ao responsável e confirma o pagamento. Depois disso a saída é liberada e o responsável retira a criança.
@@ -38,8 +33,6 @@ Hoje a Brinquedoteca não usa um sistema: as fichas de entrada e saída, a cobra
 Tendo identificado os gargalos dos modelos AS IS, apresentem uma descrição da proposta de solução, buscando maior eficiência com a introdução da tecnologia. Abordem também os limites dessa solução e o seu alinhamento com as estratégias e objetivos do contexto de negócio escolhido. 
 Colem aqui os modelos da solução proposta (modelo TO BE) elaborados com o apoio da ferramenta baseada em BPMN utilizada na disciplina.
 Cada processo identificado deve ter seu modelo TO-BE específico. Descrevam as oportunidades de melhoria de cada processo da solução proposta.
-
-_Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias._
 
 A proposta é um sistema web simples, que apoia a equipe sem sobrecarregá-la, com procedimento padronizado de atendimento e registro de horários e dados em um banco único.
 

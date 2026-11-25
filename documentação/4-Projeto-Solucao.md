@@ -41,7 +41,7 @@ flowchart LR
 
 **Diagrama da arquitetura:**
 
-![Arquitetura do Virando a Folha](imagem/arquitetura-virando-a-folha.png "Arquitetura do Virando a Folha: navegador, servidor Node.js + Express e banco MySQL 8")
+![Arquitetura do Virando a Folha](imagem/arquitetura.png "Arquitetura do Virando a Folha: navegador, servidor Node.js + Express e banco MySQL 8")
 
 O navegador carrega as páginas (HTML, CSS e JavaScript) e mostra os módulos conforme o perfil de acesso. As requisições e respostas trafegam em JSON pelo `fetch`. O servidor Node.js com Express recebe as requisições, aplica as regras de cada módulo e fala com o banco MySQL 8 por SQL.
 

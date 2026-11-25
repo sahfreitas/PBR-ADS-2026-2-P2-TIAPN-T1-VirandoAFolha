@@ -13,10 +13,6 @@ O sistema tem acesso separado para a equipe e para os responsáveis. A tela de l
 
 ## 6.1. Tela principal do sistema
 
-_Descrição da tela principal do sistema._
-
-[`Tela principal do sistema`](imagem/telas/)
-
 Depois do login, cada perfil cai em um painel inicial. A coordenação vê atalhos (registrar entrada, calcular valor, novo cadastro e novo evento), indicadores do dia (crianças na brinquedoteca, valor a receber, eventos confirmados e orçamentos em aberto), a escala de festas, as crianças brincando agora com valor parcial e os próximos eventos.
 
 ![Início da coordenação](imagem/telas/fig17.jpg "Figura 17. Início da coordenação (Beatriz)")
@@ -41,10 +37,6 @@ Depois do login, cada perfil cai em um painel inicial. A coordenação vê atalh
 
 ## 6.2. Telas do processo 1
 
-_Descrição da tela relativa à atividade 1._
-
-[`Tela da atividade 1`](imagem/telas/)
-
 **Atendimento, permanência e saída da criança.** Atividade 1, *Identificar/cadastrar criança*: a equipe cadastra o responsável e as crianças na mesma tela e consulta a lista de famílias.
 
 ![Novo cadastro (vazio)](imagem/telas/fig27.jpg "Figura 27. Novo cadastro: responsável e crianças na mesma tela")
@@ -52,10 +44,6 @@ _Descrição da tela relativa à atividade 1._
 ![Editar cadastro de uma família](imagem/telas/fig28.jpg "Figura 28. Editar cadastro: responsável com duas crianças, uma com segundo responsável e observação de alergia")
 
 ![Lista de clientes](imagem/telas/fig29.jpg "Figura 29. Lista de clientes (famílias), com acesso à edição")
-
-_Descrição da tela relativa à atividade 2._
-
-[`Tela da atividade 2`](imagem/telas/)
 
 Atividade 2, *Registrar horário de entrada*: a recepção escolhe a criança, a recepcionista e os monitores. O horário é marcado automaticamente.
 
@@ -75,10 +63,6 @@ Atividades de saída, *Registrar horário de saída*, *Calcular e informar valor
 
 ## 6.3. Telas do processo 2
 
-_Descrição da tela relativa à atividade 1._
-
-[`Tela da atividade 1`](imagem/telas/)
-
 **Solicitação, contratação e realização de festas e eventos.** Atividade 1, *Solicitar orçamento*: o responsável pede o evento pelo sistema, em passos (dados da festa e briefing).
 
 ![Meus eventos sem eventos](imagem/telas/fig11.jpg "Figura 11. Meus eventos (estado vazio)")
@@ -91,9 +75,7 @@ _Descrição da tela relativa à atividade 1._
 
 ![Início do responsável com evento em análise](imagem/telas/fig15.jpg "Figura 15. Início do responsável: o pedido fica em análise até a equipe retornar")
 
-_Descrição da tela relativa à atividade 2._
-
-[`Tela da atividade 2`](imagem/telas/)
+O passo 3 da solicitação (serviços) é praticamente igual ao passo 3 da tela da equipe, mostrado na Figura 35.
 
 Atividade 2, *Registrar informações do evento, elaborar orçamento e confirmar reserva*: a equipe vê todos os eventos, filtra por situação e monta o evento em quatro passos.
 
@@ -171,7 +153,7 @@ O responsável cadastra a própria conta, as crianças e um segundo responsável
 
 Os prints mostram o banco preenchido no MySQL Workbench.
 
-![Quantidade de linhas por tabela](imagem/telas/fig56.jpg "Figura 56. Quantidade de linhas por tabela: PESSOA (9), RESPONSAVEL (5), CRIANCA (5), FUNCIONARIO (4), ACESSO (6), ATENDIMENTO (5), EVENTO (5), SERVICO (4)")
+![Quantidade de linhas por tabela](imagem/telas/fig56.jpg "Figura 56. Quantidade de linhas por tabela: as 18 tabelas têm dados, por exemplo PESSOA (10), RESPONSAVEL (5), CRIANCA (7), FUNCIONARIO (5), ACESSO (5), ATENDIMENTO (7), EVENTO (5) e SERVICO (5)")
 
 ![Tabela PESSOA](imagem/telas/fig57.jpg "Figura 57. Tabela PESSOA")
 
@@ -208,11 +190,3 @@ Os prints mostram o banco preenchido no MySQL Workbench.
 ![Tabela CONTRATACAO](imagem/telas/fig73.png "Figura 73. Tabela CONTRATACAO")
 
 ![Tabela CONFIGURACAO](imagem/telas/fig74.png "Figura 74. Tabela CONFIGURACAO")
-
-
-> ⚠️ **FALTA PRINT (telas):**
-> - Passo 3 (Serviços) da solicitação de evento feita pelo responsável.
-> - Tela do responsável com o evento já **confirmado** (acompanhamento da situação).
-> - Mensagens de erro de regras do banco: saída antes da entrada, segundo responsável igual ao principal, CPF inválido.
-> - Telas em celular, se o grupo quiser mostrar responsividade (não há requisito de responsividade nos arquivos).
-> - Tela de login **depois** de sair (logout) e acesso negado a uma área sem permissão (por exemplo, monitor tentando abrir Funcionários).

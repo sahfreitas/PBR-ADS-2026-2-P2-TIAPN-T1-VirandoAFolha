@@ -33,29 +33,12 @@ flowchart LR
 
 ![Arquitetura do Virando a Folha](imagem/arquitetura.png "Arquitetura do Virando a Folha: navegador, servidor Node.js + Express e banco MySQL 8")
 
-O navegador carrega as páginas (HTML, CSS e JavaScript) e mostra os módulos conforme o perfil de acesso. As requisições e respostas trafegam em JSON pelo `fetch`. O servidor Node.js com Express recebe as requisições, aplica as regras de cada módulo e fala com o banco MySQL 8 por SQL.
-
-> ⚠️ **CONFERIR:** o diagrama não mostra uma hospedagem (como o Heroku do exemplo do template), porque não foi informado onde o sistema roda na entrega. Se houver deploy, acrescente o servidor ou serviço usado.
->
-> ⚠️ **CONFERIR:** a stack (Node.js, Express, MySQL 8, front em HTML/CSS/JS com `fetch`) e a pasta `routes/` vêm do que foi combinado no desenvolvimento. Confirme com o `package.json` e com a estrutura real do repositório (nomes das pastas, bibliotecas de hash de senha etc.).
+O navegador carrega as páginas (HTML, CSS e JavaScript) e mostra os módulos conforme o perfil de acesso. As requisições e respostas trafegam em JSON pelo `fetch`. O servidor Node.js com Express recebe as requisições, aplica as regras de cada módulo e fala com o banco MySQL 8 por SQL. O sistema roda localmente.
 
 ### 4.2. Protótipos de telas
 
 Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
 Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação.md"> Especificação do Projeto</a>.
-A partir das atividades de usuário identificadas na seção anterior, elabore o protótipo de tela de cada uma delas.
-![Exemplo de Wireframe](imagem/wireframe-example.png)
-
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
- 
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
 
 As interfaces seguem a navegação por menu lateral, que muda conforme o perfil: a equipe vê Início, Atendimentos, Novo cadastro, Clientes, Eventos, Serviços e Funcionários (a recepção e a monitoria veem menos itens), e o responsável vê Início, Meus dados e crianças, Meus eventos e Solicitar evento. Os fluxos mais longos (cadastro de família e evento) são divididos em passos, o que ajuda a padronizar o atendimento. Todas as telas implementadas estão na seção [6. Interface do Sistema](6-Interface-Sistema.md).
 
@@ -129,29 +112,121 @@ Os wireframes abaixo mostram a estrutura de cada tela principal do sistema (menu
 
 ![Wireframe: Solicitar evento (responsável)](imagem/wireframes/16-responsavel-solicitar-evento.png "Wireframe 16. Solicitar evento (responsável)")
 
-> ⚠️ **CONFERIR:** estes wireframes foram **redesenhados depois**, a partir das telas prontas. Se o grupo tiver protótipos feitos **antes** de programar (Figma, papel, Marvel etc.), coloque-os também aqui e ajuste o texto. Os arquivos editáveis (SVG) estão na pasta `wireframes-fonte/`.
->
-> ⚠️ **FALTA:** wireframes da versão para **celular** (o sistema funciona no celular e no computador) e das telas de passo 2 (briefing) e passo 3 do evento do responsável, se o professor pedir.
+### Diagrama de Classes
 
+O diagrama de classes mostra como as entidades do sistema se relacionam como classes. Ele foi derivado do Modelo ER (seção [4.3.1](#431-modelo-er)): os atributos derivados viram métodos (`idade()`, `calcularValor()` e `valorTotal()`), o telefone multivalorado vira uma lista em `PESSOA` e o responsável adicional é uma associação entre `CRIANCA` e `RESPONSAVEL`.
 
-## Diagrama de Classes
+```mermaid
+classDiagram
+    class PESSOA {
+        +String cpf
+        +String primeiroNome
+        +String sobrenome
+        +String sexo
+        +Date dataNascimento
+        +String rua
+        +String numero
+        +String bairro
+        +String cidade
+        +List telefones
+        +idade() int
+    }
+    class ACESSO {
+        +String senhaHash
+        +String perfil
+    }
+    class RESPONSAVEL {
+        +int codResponsavel
+        +Date dataCadastro
+    }
+    class FUNCIONARIO {
+        +int codFuncionario
+        +Date dataCadastro
+        +String funcao
+    }
+    class RECEPCIONISTA {
+        +int codRecepcionista
+    }
+    class MONITOR {
+        +int codMonitor
+    }
+    class CRIANCA {
+        +int numSequencial
+        +String nome
+        +Date dataNascimento
+        +String observacoes
+    }
+    class ATENDIMENTO {
+        +int codAtendimento
+        +Date data
+        +Time horaEntrada
+        +Time horaSaida
+        +boolean pago
+        +calcularValor() decimal
+    }
+    class EVENTO {
+        +int codEvento
+        +Date data
+        +Time horario
+        +int qtdConvidados
+        +String rua
+        +String numero
+        +String bairro
+        +String cidade
+        +String status
+        +valorTotal() decimal
+    }
+    class FICHA_BRIEFING {
+        +int codBriefing
+        +String tema
+        +String observacoes
+    }
+    class CHECKLIST_EVENTO {
+        +int codChecklist
+        +String tipo
+        +String item
+        +boolean concluido
+    }
+    class SERVICO {
+        +int codServico
+        +String nome
+        +String descricao
+        +decimal valor
+    }
+    class PARTICIPACAO {
+        +String funcaoEvento
+        +Time horarioAtuacao
+    }
+    class CONTRATACAO {
+        +int quantidade
+        +decimal valorServico
+    }
+    class CONFIGURACAO {
+        +String chave
+        +decimal valor
+    }
 
-O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.
+    PESSOA <|-- RESPONSAVEL
+    PESSOA <|-- FUNCIONARIO
+    FUNCIONARIO <|-- RECEPCIONISTA
+    FUNCIONARIO <|-- MONITOR
+    PESSOA "1" --> "0..1" ACESSO : autentica
+    FUNCIONARIO "0..1" --> "0..*" FUNCIONARIO : supervisiona
+    RESPONSAVEL "1" *-- "0..*" CRIANCA : possui
+    CRIANCA "0..*" --> "0..1" RESPONSAVEL : responsável adicional
+    ATENDIMENTO "0..*" --> "1" CRIANCA : recebido por
+    ATENDIMENTO "0..*" --> "1" RECEPCIONISTA : realizado por
+    ATENDIMENTO "0..*" --> "0..*" MONITOR : acompanhado por
+    EVENTO "0..*" --> "1" RESPONSAVEL : solicitado por
+    EVENTO "1" *-- "0..1" FICHA_BRIEFING : possui
+    EVENTO "1" *-- "0..*" CHECKLIST_EVENTO : tem
+    EVENTO "1" *-- "0..*" PARTICIPACAO : escala
+    PARTICIPACAO "0..*" --> "1" FUNCIONARIO : equipe
+    EVENTO "1" *-- "0..*" CONTRATACAO : contrata
+    CONTRATACAO "0..*" --> "1" SERVICO : serviço
+```
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Classes”.
-
-> - [Diagramas de Classes - Documentação da IBM](https://www.ibm.com/docs/pt-br/rational-soft-arch/9.6.1?topic=diagrams-class)
-> - [O que é um diagrama de classe UML? | Lucidchart](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-classe-uml)
-
-> ⚠️ **FALTA:** o grupo não enviou diagrama de classes. O sistema foi modelado direto em Modelo ER e esquema relacional (veja abaixo) e o back-end é em JavaScript. Confirme se o professor exige este diagrama; se exigir, ele ainda precisa ser feito (as classes seriam as 18 tabelas da seção 4.3.2).
-
-## Modelo ER
-
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+### Modelo ER
 
 O Modelo ER do sistema está em [4.3.1 Modelo ER](#431-modelo-er).
 
@@ -159,18 +234,10 @@ O Modelo ER do sistema está em [4.3.1 Modelo ER](#431-modelo-er).
 ### 4.3. Modelo de dados
 
 O desenvolvimento da solução proposta requer a existência de bases de dados que permitam efetuar os cadastros de dados e controles associados aos processos identificados, assim como recuperações.
-Utilizando a notação do DER (Diagrama Entidade e Relacionamento), elaborem um modelo, na ferramenta visual indicada na disciplina, que contemple todas as entidades e atributos associados às atividades dos processos identificados. Deve ser gerado um único DER que suporte todos os processos escolhidos, visando, assim, uma base de dados integrada. O modelo deve contemplar, também, o controle de acesso de usuários (partes interessadas dos processos) de acordo com os papéis definidos nos modelos do processo de negócio.
-_Apresente o modelo de dados por meio de um modelo relacional que contemple todos os conceitos e atributos apresentados na modelagem dos processos._
 
 Um único DER dá suporte aos dois processos e ao controle de acesso. O banco tem **18 tabelas** e está na 3ª forma normal.
 
 #### 4.3.1 Modelo ER
-
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
 
 ![Modelo ER do sistema Virando a Folha](imagem/MER_corrigido.png "Modelo ER (MER corrigido)")
 
@@ -192,15 +259,6 @@ As cardinalidades de cada relacionamento estão indicadas no próprio diagrama.
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
  
-As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Relacional”.
-
-> - [Criando um modelo relacional - Documentação da IBM](https://www.ibm.com/docs/pt-br/cognos-analytics/10.2.2?topic=designer-creating-relational-model)
-
-![Exemplo de um modelo relacional](imagem/modeloRelacional.png "Exemplo de Modelo Relacional.")
----
-
-*(a imagem acima é o exemplo do template)*
-
 **Esquema relacional do sistema** (diagrama de esquema). Chaves primárias sublinhadas e chaves estrangeiras em rosa; as setas apontam da tabela com a chave estrangeira para a tabela referenciada.
 
 ![Diagrama de esquema (DSC) do banco Brinquedoteca Barreiro](imagem/esquema-relacional-dsc.png "Esquema relacional do sistema Virando a Folha")
@@ -246,63 +304,9 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Rel
 
 O **dicionário de dados** completo das 18 tabelas está em [4-Dicionario-de-Dados.md](4-Dicionario-de-Dados.md).
 
-> ⚠️ **CONFERIR:** as imagens `Relacional_01.jpg`, `modeloRelacional.*`, `er_diagram.png` e `process.png` da pasta `imagem/` são **exemplos do template**. Apague as que não usar.
-
-
 #### 4.3.3 Modelo Físico
 
-Insira aqui o script de criação das tabelas do banco de dados.
-
-Veja um exemplo:
-
-<!-- EXEMPLO DO TEMPLATE (mantido para consulta):
-<code>
-
- -- Criação da tabela Médico
-CREATE TABLE Medico (
-    MedCodigo INTEGER PRIMARY KEY,
-    MedNome VARCHAR(100)
-);
-
-
--- Criação da tabela Paciente
-CREATE TABLE Paciente (
-    PacCodigo INTEGER PRIMARY KEY,
-    PacNome VARCHAR(100)
-);
-
--- Criação da tabela Consulta
-CREATE TABLE Consulta (
-    ConCodigo INTEGER PRIMARY KEY,
-    MedCodigo INTEGER,
-    PacCodigo INTEGER,
-    Data DATE,
-    FOREIGN KEY (MedCodigo) REFERENCES Medico(MedCodigo),
-    FOREIGN KEY (PacCodigo) REFERENCES Paciente(PacCodigo)
-);
-
--- Criação da tabela Medicamento
-CREATE TABLE Medicamento (
-    MdcCodigo INTEGER PRIMARY KEY,
-    MdcNome VARCHAR(100)
-);
-
--- Criação da tabela Prescricao
-CREATE TABLE Prescricao (
-    ConCodigo INTEGER,
-    MdcCodigo INTEGER,
-    Posologia VARCHAR(200),
-    PRIMARY KEY (ConCodigo, MdcCodigo),
-    FOREIGN KEY (ConCodigo) REFERENCES Consulta(ConCodigo),
-    FOREIGN KEY (MdcCodigo) REFERENCES Medicamento(MdcCodigo)
-);
-
-</code>
--->
-
-Este script deverá ser incluído em um arquivo .sql na pasta src\bd.
-
-> ⚠️ **CONFERIR:** o script abaixo foi **reconstruído a partir do Dicionário de Dados / Projeto Lógico (Fase 2)**, porque o `schema.sql` oficial do grupo não foi enviado. Ele foi testado num MariaDB 10.11 (criou as 18 tabelas e 12 triggers, e recusou os dados inválidos testados), mas **não** no MySQL 8 do grupo. Compare com o `schema.sql` real do repositório: se houver diferença, vale o do repositório. Salve o script final em `src/bd/schema.sql`.
+O script abaixo é o `schema.sql` do projeto, que fica em `código-fonte/db/database/schema.sql`.
 
 ##### Diagrama do modelo físico (EER)
 
@@ -310,427 +314,411 @@ Diagrama gerado por engenharia reversa do banco criado pelo script abaixo (linha
 
 ![Diagrama EER do modelo físico (18 tabelas)](imagem/modelo-fisico-eer.png "Modelo físico (EER) do banco brinquedoteca")
 
-> ⚠️ **FALTA PRINT (opcional):** o professor pode pedir o print do **MySQL Workbench** (*Database > Reverse Engineer*). Passos: abra o Workbench, conecte no banco `brinquedoteca`, use *Database > Reverse Engineer...*, marque o schema e finalize; o diagrama EER abre sozinho. Exporte em *File > Export > Export as PNG*.
-
 ##### Script de criação (DDL + triggers)
 
 <details>
-<summary>Clique para ver o script completo (<code>src/bd/schema.sql</code>)</summary>
+<summary>Clique para ver o script completo (<code>código-fonte/db/database/schema.sql</code>)</summary>
 
 ```sql
 -- =====================================================================
--- Virando a Folha | Brinquedoteca Barreiro
--- Modelo físico (MySQL 8): 18 tabelas, CHECKs e triggers
---
--- ATENÇÃO: script escrito a partir do dicionário de dados da Fase 2
--- (projeto lógico corrigido). Se existir o schema.sql oficial do grupo,
--- confira as diferenças antes de entregar.
+-- Virando a Folha - Brinquedoteca Barreiro
+-- schema.sql (MySQL 8.0) - baseado no Projeto Lógico, Fase 2 (corrigido)
+-- Rode o arquivo INTEIRO (raio / Ctrl+Shift+Enter no Workbench).
+-- ATENÇÃO: recria o banco do zero (apaga o que existir em "brinquedoteca").
 -- =====================================================================
 
-CREATE DATABASE IF NOT EXISTS brinquedoteca
-    CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+DROP DATABASE IF EXISTS brinquedoteca;
+CREATE DATABASE brinquedoteca CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE brinquedoteca;
 
 -- ---------------------------------------------------------------------
--- 1. PESSOA (superclasse de RESPONSAVEL e FUNCIONARIO)
+-- PESSOA (superclasse de RESPONSAVEL e FUNCIONARIO)
 -- ---------------------------------------------------------------------
 CREATE TABLE PESSOA (
-    cpf             CHAR(11)     NOT NULL,
-    primeiro_nome   VARCHAR(50)  NOT NULL,
-    sobrenome       VARCHAR(100) NOT NULL,
-    sexo            CHAR(1)      NOT NULL,
-    data_nascimento DATE         NOT NULL,
-    rua             VARCHAR(100) NOT NULL,
-    numero          VARCHAR(10)  NOT NULL,
-    bairro          VARCHAR(60)  NOT NULL,
-    cidade          VARCHAR(60)  NOT NULL,
-    CONSTRAINT pk_pessoa PRIMARY KEY (cpf),
-    CONSTRAINT ck_pessoa_cpf  CHECK (cpf REGEXP '^[0-9]{11}$'),
-    CONSTRAINT ck_pessoa_sexo CHECK (sexo IN ('M', 'F', 'O'))
-) ENGINE = InnoDB;
+  cpf             CHAR(11)     NOT NULL,
+  primeiro_nome   VARCHAR(50)  NOT NULL,
+  sobrenome       VARCHAR(100) NOT NULL,
+  sexo            CHAR(1)      NOT NULL,
+  data_nascimento DATE         NOT NULL,
+  rua             VARCHAR(100) NOT NULL,
+  numero          VARCHAR(10)  NOT NULL,
+  bairro          VARCHAR(60)  NOT NULL,
+  cidade          VARCHAR(60)  NOT NULL,
+  PRIMARY KEY (cpf),
+  CONSTRAINT ck_pessoa_cpf  CHECK (cpf REGEXP '^[0-9]{11}$'),
+  CONSTRAINT ck_pessoa_sexo CHECK (sexo IN ('M','F','O'))
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 2. TELEFONE_PESSOA (atributo multivalorado de PESSOA)
+-- TELEFONE_PESSOA (atributo multivalorado de PESSOA)
 -- ---------------------------------------------------------------------
 CREATE TABLE TELEFONE_PESSOA (
-    cpf      CHAR(11)    NOT NULL,
-    telefone VARCHAR(15) NOT NULL,
-    CONSTRAINT pk_telefone_pessoa PRIMARY KEY (cpf, telefone),
-    CONSTRAINT fk_telefone_pessoa FOREIGN KEY (cpf)
-        REFERENCES PESSOA (cpf) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT ck_telefone CHECK (telefone REGEXP '^[0-9]{1,15}$')
-) ENGINE = InnoDB;
+  cpf      CHAR(11)    NOT NULL,
+  telefone VARCHAR(15) NOT NULL,
+  PRIMARY KEY (cpf, telefone),
+  CONSTRAINT fk_telpessoa_pessoa FOREIGN KEY (cpf) REFERENCES PESSOA (cpf)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT ck_telpessoa_tel CHECK (telefone REGEXP '^[0-9]{1,15}$')
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 3. ACESSO (login do sistema)
--- ---------------------------------------------------------------------
-CREATE TABLE ACESSO (
-    cpf        CHAR(11)     NOT NULL,
-    senha_hash VARCHAR(200) NOT NULL,
-    perfil     VARCHAR(12)  NOT NULL,
-    CONSTRAINT pk_acesso PRIMARY KEY (cpf),
-    CONSTRAINT fk_acesso_pessoa FOREIGN KEY (cpf)
-        REFERENCES PESSOA (cpf) ON DELETE CASCADE ON UPDATE NO ACTION,
-    CONSTRAINT ck_acesso_perfil CHECK (perfil IN ('ADMIN', 'FUNCIONARIO', 'RESPONSAVEL'))
-) ENGINE = InnoDB;
-
--- ---------------------------------------------------------------------
--- 4. RESPONSAVEL (especialização de PESSOA)
+-- RESPONSAVEL (especializacao de PESSOA)
 -- ---------------------------------------------------------------------
 CREATE TABLE RESPONSAVEL (
-    cod_responsavel INT      NOT NULL AUTO_INCREMENT,
-    data_cadastro   DATE     NOT NULL DEFAULT (CURRENT_DATE),
-    cpf             CHAR(11) NOT NULL,
-    CONSTRAINT pk_responsavel PRIMARY KEY (cod_responsavel),
-    CONSTRAINT uq_responsavel_cpf UNIQUE (cpf),
-    CONSTRAINT fk_responsavel_pessoa FOREIGN KEY (cpf)
-        REFERENCES PESSOA (cpf) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_responsavel INT      NOT NULL AUTO_INCREMENT,
+  data_cadastro   DATE     NOT NULL DEFAULT (CURRENT_DATE),
+  cpf             CHAR(11) NOT NULL,
+  PRIMARY KEY (cod_responsavel),
+  UNIQUE KEY uq_responsavel_cpf (cpf),
+  CONSTRAINT fk_responsavel_pessoa FOREIGN KEY (cpf) REFERENCES PESSOA (cpf)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 5. FUNCIONARIO (especialização de PESSOA, com supervisão)
+-- FUNCIONARIO (especializacao de PESSOA, com autorrelacionamento)
 -- ---------------------------------------------------------------------
 CREATE TABLE FUNCIONARIO (
-    cod_funcionario INT         NOT NULL AUTO_INCREMENT,
-    data_cadastro   DATE        NOT NULL DEFAULT (CURRENT_DATE),
-    funcao          VARCHAR(50) NOT NULL,
-    cpf             CHAR(11)    NOT NULL,
-    cod_supervisor  INT         NULL DEFAULT NULL,
-    CONSTRAINT pk_funcionario PRIMARY KEY (cod_funcionario),
-    CONSTRAINT uq_funcionario_cpf UNIQUE (cpf),
-    CONSTRAINT fk_funcionario_pessoa FOREIGN KEY (cpf)
-        REFERENCES PESSOA (cpf) ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT fk_funcionario_supervisor FOREIGN KEY (cod_supervisor)
-        REFERENCES FUNCIONARIO (cod_funcionario) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_funcionario INT         NOT NULL AUTO_INCREMENT,
+  data_cadastro   DATE        NOT NULL DEFAULT (CURRENT_DATE),
+  funcao          VARCHAR(50) NOT NULL,
+  cpf             CHAR(11)    NOT NULL,
+  cod_supervisor  INT         NULL DEFAULT NULL,
+  PRIMARY KEY (cod_funcionario),
+  UNIQUE KEY uq_funcionario_cpf (cpf),
+  CONSTRAINT fk_funcionario_pessoa FOREIGN KEY (cpf) REFERENCES PESSOA (cpf)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT fk_funcionario_supervisor FOREIGN KEY (cod_supervisor) REFERENCES FUNCIONARIO (cod_funcionario)
+    ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB;
+-- (supervisor <> proprio funcionario e controlado por trigger, mais abaixo)
 
 -- ---------------------------------------------------------------------
--- 6. RECEPCIONISTA (especialização sobreposta de FUNCIONARIO)
+-- RECEPCIONISTA e MONITOR (especializacoes sobrepostas de FUNCIONARIO)
 -- ---------------------------------------------------------------------
 CREATE TABLE RECEPCIONISTA (
-    cod_recepcionista INT NOT NULL AUTO_INCREMENT,
-    cod_funcionario   INT NOT NULL,
-    CONSTRAINT pk_recepcionista PRIMARY KEY (cod_recepcionista),
-    CONSTRAINT uq_recepcionista_func UNIQUE (cod_funcionario),
-    CONSTRAINT fk_recepcionista_func FOREIGN KEY (cod_funcionario)
-        REFERENCES FUNCIONARIO (cod_funcionario) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_recepcionista INT NOT NULL AUTO_INCREMENT,
+  cod_funcionario   INT NOT NULL,
+  PRIMARY KEY (cod_recepcionista),
+  UNIQUE KEY uq_recepcionista_func (cod_funcionario),
+  CONSTRAINT fk_recepcionista_func FOREIGN KEY (cod_funcionario) REFERENCES FUNCIONARIO (cod_funcionario)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
--- ---------------------------------------------------------------------
--- 7. MONITOR (especialização sobreposta de FUNCIONARIO)
--- ---------------------------------------------------------------------
 CREATE TABLE MONITOR (
-    cod_monitor     INT NOT NULL AUTO_INCREMENT,
-    cod_funcionario INT NOT NULL,
-    CONSTRAINT pk_monitor PRIMARY KEY (cod_monitor),
-    CONSTRAINT uq_monitor_func UNIQUE (cod_funcionario),
-    CONSTRAINT fk_monitor_func FOREIGN KEY (cod_funcionario)
-        REFERENCES FUNCIONARIO (cod_funcionario) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_monitor     INT NOT NULL AUTO_INCREMENT,
+  cod_funcionario INT NOT NULL,
+  PRIMARY KEY (cod_monitor),
+  UNIQUE KEY uq_monitor_func (cod_funcionario),
+  CONSTRAINT fk_monitor_func FOREIGN KEY (cod_funcionario) REFERENCES FUNCIONARIO (cod_funcionario)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 8. CRIANCA (entidade fraca de RESPONSAVEL)
+-- CRIANCA (entidade fraca de RESPONSAVEL)
+-- PK = (cod_responsavel, num_sequencial). Se o num_sequencial nao for
+-- informado no INSERT, um trigger numera automaticamente (1, 2, 3...).
 -- ---------------------------------------------------------------------
 CREATE TABLE CRIANCA (
-    cod_responsavel INT          NOT NULL,
-    num_sequencial  INT          NOT NULL DEFAULT 0,
-    nome            VARCHAR(100) NOT NULL,
-    data_nascimento DATE         NOT NULL,
-    observacoes     VARCHAR(255) NULL DEFAULT NULL,
-    CONSTRAINT pk_crianca PRIMARY KEY (cod_responsavel, num_sequencial),
-    CONSTRAINT fk_crianca_responsavel FOREIGN KEY (cod_responsavel)
-        REFERENCES RESPONSAVEL (cod_responsavel) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_responsavel INT          NOT NULL,
+  num_sequencial  INT          NOT NULL DEFAULT 0,
+  nome            VARCHAR(100) NOT NULL,
+  data_nascimento DATE         NOT NULL,
+  observacoes     VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (cod_responsavel, num_sequencial),
+  CONSTRAINT fk_crianca_responsavel FOREIGN KEY (cod_responsavel) REFERENCES RESPONSAVEL (cod_responsavel)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 9. RESPONSAVEL_ADICIONAL (segundo responsável, opcional)
+-- RESPONSAVEL_ADICIONAL (2o responsavel, opcional, de uma crianca)
+-- Regras (adicional <> principal e maximo de 1 adicional): triggers.
 -- ---------------------------------------------------------------------
 CREATE TABLE RESPONSAVEL_ADICIONAL (
-    cod_responsavel           INT NOT NULL,
-    num_sequencial            INT NOT NULL,
-    cod_responsavel_adicional INT NOT NULL,
-    CONSTRAINT pk_resp_adicional
-        PRIMARY KEY (cod_responsavel, num_sequencial, cod_responsavel_adicional),
-    CONSTRAINT fk_resp_adicional_crianca FOREIGN KEY (cod_responsavel, num_sequencial)
-        REFERENCES CRIANCA (cod_responsavel, num_sequencial) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_resp_adicional_resp FOREIGN KEY (cod_responsavel_adicional)
-        REFERENCES RESPONSAVEL (cod_responsavel) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_responsavel           INT NOT NULL,
+  num_sequencial            INT NOT NULL,
+  cod_responsavel_adicional INT NOT NULL,
+  PRIMARY KEY (cod_responsavel, num_sequencial, cod_responsavel_adicional),
+  CONSTRAINT fk_respadic_crianca FOREIGN KEY (cod_responsavel, num_sequencial)
+    REFERENCES CRIANCA (cod_responsavel, num_sequencial)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_respadic_responsavel FOREIGN KEY (cod_responsavel_adicional)
+    REFERENCES RESPONSAVEL (cod_responsavel)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 10. ATENDIMENTO (entrada e saída da criança)
+-- ATENDIMENTO (entrada e saida de uma crianca)
+-- hora_saida fica NULL enquanto a crianca esta na brinquedoteca.
+-- ACRESCIMO: coluna "pago" (confirmar pagamento, do BPMN TO-BE).
 -- ---------------------------------------------------------------------
 CREATE TABLE ATENDIMENTO (
-    cod_atendimento   INT     NOT NULL AUTO_INCREMENT,
-    data              DATE    NOT NULL DEFAULT (CURRENT_DATE),
-    hora_entrada      TIME    NOT NULL,
-    hora_saida        TIME    NULL DEFAULT NULL,
-    pago              BOOLEAN NOT NULL DEFAULT FALSE,
-    cod_responsavel   INT     NOT NULL,
-    num_sequencial    INT     NOT NULL,
-    cod_recepcionista INT     NOT NULL,
-    CONSTRAINT pk_atendimento PRIMARY KEY (cod_atendimento),
-    CONSTRAINT fk_atendimento_crianca FOREIGN KEY (cod_responsavel, num_sequencial)
-        REFERENCES CRIANCA (cod_responsavel, num_sequencial) ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT fk_atendimento_recep FOREIGN KEY (cod_recepcionista)
-        REFERENCES RECEPCIONISTA (cod_recepcionista) ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT ck_atendimento_horas CHECK (hora_saida IS NULL OR hora_saida > hora_entrada)
-) ENGINE = InnoDB;
+  cod_atendimento   INT     NOT NULL AUTO_INCREMENT,
+  data              DATE    NOT NULL DEFAULT (CURRENT_DATE),
+  hora_entrada      TIME    NOT NULL,
+  hora_saida        TIME    NULL DEFAULT NULL,
+  cod_responsavel   INT     NOT NULL,
+  num_sequencial    INT     NOT NULL,
+  cod_recepcionista INT     NOT NULL,
+  pago              BOOLEAN NOT NULL DEFAULT FALSE,   -- ACRESCIMO
+  PRIMARY KEY (cod_atendimento),
+  CONSTRAINT fk_atend_crianca FOREIGN KEY (cod_responsavel, num_sequencial)
+    REFERENCES CRIANCA (cod_responsavel, num_sequencial)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT fk_atend_recepcionista FOREIGN KEY (cod_recepcionista)
+    REFERENCES RECEPCIONISTA (cod_recepcionista)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT ck_atend_saida CHECK (hora_saida IS NULL OR hora_saida > hora_entrada)
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 11. ACOMPANHA (monitores de cada atendimento, N:N)
+-- ACOMPANHA (N:N entre MONITOR e ATENDIMENTO)
 -- ---------------------------------------------------------------------
 CREATE TABLE ACOMPANHA (
-    cod_atendimento INT NOT NULL,
-    cod_monitor     INT NOT NULL,
-    CONSTRAINT pk_acompanha PRIMARY KEY (cod_atendimento, cod_monitor),
-    CONSTRAINT fk_acompanha_atend FOREIGN KEY (cod_atendimento)
-        REFERENCES ATENDIMENTO (cod_atendimento) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_acompanha_monitor FOREIGN KEY (cod_monitor)
-        REFERENCES MONITOR (cod_monitor) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_atendimento INT NOT NULL,
+  cod_monitor     INT NOT NULL,
+  PRIMARY KEY (cod_atendimento, cod_monitor),
+  CONSTRAINT fk_acompanha_atend FOREIGN KEY (cod_atendimento) REFERENCES ATENDIMENTO (cod_atendimento)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_acompanha_monitor FOREIGN KEY (cod_monitor) REFERENCES MONITOR (cod_monitor)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 12. EVENTO (festas e atividades temáticas)
+-- EVENTO (festas e atividades tematicas)
+-- ACRESCIMO: coluna "status" (orcamento aprovado ou nao, do BPMN TO-BE).
 -- ---------------------------------------------------------------------
 CREATE TABLE EVENTO (
-    cod_evento      INT          NOT NULL AUTO_INCREMENT,
-    data            DATE         NOT NULL,
-    horario         TIME         NOT NULL,
-    qtd_convidados  INT          NOT NULL,
-    rua             VARCHAR(100) NOT NULL,
-    numero          VARCHAR(10)  NOT NULL,
-    bairro          VARCHAR(60)  NOT NULL,
-    cidade          VARCHAR(60)  NOT NULL,
-    status          ENUM('ORCAMENTO', 'CONFIRMADO', 'CANCELADO') NOT NULL DEFAULT 'ORCAMENTO',
-    cod_responsavel INT          NOT NULL,
-    CONSTRAINT pk_evento PRIMARY KEY (cod_evento),
-    CONSTRAINT fk_evento_responsavel FOREIGN KEY (cod_responsavel)
-        REFERENCES RESPONSAVEL (cod_responsavel) ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT ck_evento_convidados CHECK (qtd_convidados > 0)
-) ENGINE = InnoDB;
+  cod_evento      INT          NOT NULL AUTO_INCREMENT,
+  data            DATE         NOT NULL,
+  horario         TIME         NOT NULL,
+  qtd_convidados  INT          NOT NULL,
+  rua             VARCHAR(100) NOT NULL,
+  numero          VARCHAR(10)  NOT NULL,
+  bairro          VARCHAR(60)  NOT NULL,
+  cidade          VARCHAR(60)  NOT NULL,
+  cod_responsavel INT          NOT NULL,
+  status          ENUM('ORCAMENTO','CONFIRMADO','CANCELADO') NOT NULL DEFAULT 'ORCAMENTO',  -- ACRESCIMO
+  PRIMARY KEY (cod_evento),
+  CONSTRAINT fk_evento_responsavel FOREIGN KEY (cod_responsavel) REFERENCES RESPONSAVEL (cod_responsavel)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT ck_evento_convidados CHECK (qtd_convidados > 0)
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 13. FICHA_BRIEFING (1:1 com EVENTO)
+-- FICHA_BRIEFING (1:1 com EVENTO)
 -- ---------------------------------------------------------------------
 CREATE TABLE FICHA_BRIEFING (
-    cod_briefing INT          NOT NULL AUTO_INCREMENT,
-    tema         VARCHAR(100) NOT NULL,
-    observacoes  VARCHAR(255) NULL DEFAULT NULL,
-    cod_evento   INT          NOT NULL,
-    CONSTRAINT pk_ficha_briefing PRIMARY KEY (cod_briefing),
-    CONSTRAINT uq_ficha_evento UNIQUE (cod_evento),
-    CONSTRAINT fk_ficha_evento FOREIGN KEY (cod_evento)
-        REFERENCES EVENTO (cod_evento) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_briefing INT          NOT NULL AUTO_INCREMENT,
+  tema         VARCHAR(100) NOT NULL,
+  observacoes  VARCHAR(255) NULL DEFAULT NULL,
+  cod_evento   INT          NOT NULL,
+  PRIMARY KEY (cod_briefing),
+  UNIQUE KEY uq_briefing_evento (cod_evento),
+  CONSTRAINT fk_briefing_evento FOREIGN KEY (cod_evento) REFERENCES EVENTO (cod_evento)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 14. CHECKLIST_EVENTO (checklists pré e pós-evento)
--- ---------------------------------------------------------------------
-CREATE TABLE CHECKLIST_EVENTO (
-    cod_checklist INT          NOT NULL AUTO_INCREMENT,
-    cod_evento    INT          NOT NULL,
-    tipo          ENUM('PRE', 'POS') NOT NULL,
-    item          VARCHAR(150) NOT NULL,
-    concluido     BOOLEAN      NOT NULL DEFAULT FALSE,
-    CONSTRAINT pk_checklist PRIMARY KEY (cod_checklist),
-    CONSTRAINT fk_checklist_evento FOREIGN KEY (cod_evento)
-        REFERENCES EVENTO (cod_evento) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB;
-
--- ---------------------------------------------------------------------
--- 15. SERVICO (catálogo de serviços das festas)
+-- SERVICO (catalogo)
 -- ---------------------------------------------------------------------
 CREATE TABLE SERVICO (
-    cod_servico INT           NOT NULL AUTO_INCREMENT,
-    nome        VARCHAR(100)  NOT NULL,
-    descricao   VARCHAR(255)  NULL DEFAULT NULL,
-    valor       DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    CONSTRAINT pk_servico PRIMARY KEY (cod_servico),
-    CONSTRAINT uq_servico_nome UNIQUE (nome),
-    CONSTRAINT ck_servico_valor CHECK (valor >= 0)
-) ENGINE = InnoDB;
+  cod_servico INT           NOT NULL AUTO_INCREMENT,
+  nome        VARCHAR(100)  NOT NULL,
+  descricao   VARCHAR(255)  NULL DEFAULT NULL,
+  valor       DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+  PRIMARY KEY (cod_servico),
+  UNIQUE KEY uq_servico_nome (nome),
+  CONSTRAINT ck_servico_valor CHECK (valor >= 0)
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 16. PARTICIPACAO (equipe escalada no evento, N:N)
+-- PARTICIPACAO (N:N entre FUNCIONARIO e EVENTO)
 -- ---------------------------------------------------------------------
 CREATE TABLE PARTICIPACAO (
-    cod_funcionario INT         NOT NULL,
-    cod_evento      INT         NOT NULL,
-    funcao_evento   VARCHAR(50) NOT NULL,
-    horario_atuacao TIME        NOT NULL,
-    CONSTRAINT pk_participacao PRIMARY KEY (cod_funcionario, cod_evento),
-    CONSTRAINT fk_participacao_func FOREIGN KEY (cod_funcionario)
-        REFERENCES FUNCIONARIO (cod_funcionario) ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT fk_participacao_evento FOREIGN KEY (cod_evento)
-        REFERENCES EVENTO (cod_evento) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB;
+  cod_funcionario INT         NOT NULL,
+  cod_evento      INT         NOT NULL,
+  funcao_evento   VARCHAR(50) NOT NULL,
+  horario_atuacao TIME        NOT NULL,
+  PRIMARY KEY (cod_funcionario, cod_evento),
+  CONSTRAINT fk_partic_funcionario FOREIGN KEY (cod_funcionario) REFERENCES FUNCIONARIO (cod_funcionario)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT fk_partic_evento FOREIGN KEY (cod_evento) REFERENCES EVENTO (cod_evento)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- 17. CONTRATACAO (serviços contratados no evento, N:N)
+-- CONTRATACAO (N:N entre EVENTO e SERVICO)
 -- ---------------------------------------------------------------------
 CREATE TABLE CONTRATACAO (
-    cod_evento    INT           NOT NULL,
-    cod_servico   INT           NOT NULL,
-    quantidade    INT           NOT NULL DEFAULT 1,
-    valor_servico DECIMAL(10,2) NOT NULL,
-    CONSTRAINT pk_contratacao PRIMARY KEY (cod_evento, cod_servico),
-    CONSTRAINT fk_contratacao_evento FOREIGN KEY (cod_evento)
-        REFERENCES EVENTO (cod_evento) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_contratacao_servico FOREIGN KEY (cod_servico)
-        REFERENCES SERVICO (cod_servico) ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT ck_contratacao_qtd   CHECK (quantidade > 0),
-    CONSTRAINT ck_contratacao_valor CHECK (valor_servico >= 0)
-) ENGINE = InnoDB;
-
--- ---------------------------------------------------------------------
--- 18. CONFIGURACAO (parâmetros do sistema, como valor_hora)
--- ---------------------------------------------------------------------
-CREATE TABLE CONFIGURACAO (
-    chave VARCHAR(50)   NOT NULL,
-    valor DECIMAL(10,2) NOT NULL,
-    CONSTRAINT pk_configuracao PRIMARY KEY (chave)
-) ENGINE = InnoDB;
+  cod_evento    INT           NOT NULL,
+  cod_servico   INT           NOT NULL,
+  quantidade    INT           NOT NULL DEFAULT 1,
+  valor_servico DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (cod_evento, cod_servico),
+  CONSTRAINT fk_contrat_evento FOREIGN KEY (cod_evento) REFERENCES EVENTO (cod_evento)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_contrat_servico FOREIGN KEY (cod_servico) REFERENCES SERVICO (cod_servico)
+    ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT ck_contrat_qtd   CHECK (quantidade > 0),
+  CONSTRAINT ck_contrat_valor CHECK (valor_servico >= 0)
+) ENGINE=InnoDB;
 
 -- =====================================================================
--- TRIGGERS (regras que o CHECK do MySQL não consegue validar)
+-- ACRESCIMOS (nao estao no Projeto Logico; vieram do BPMN TO-BE)
+-- =====================================================================
+
+-- Configuracoes do sistema (ex.: valor da hora para calcular a cobranca
+-- do atendimento: valor = horas de permanencia x valor_hora)
+CREATE TABLE CONFIGURACAO (
+  chave VARCHAR(50)   NOT NULL,
+  valor DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (chave)
+) ENGINE=InnoDB;
+
+-- Acesso ao sistema (login): CPF + senha guardada em hash (nunca a senha pura).
+-- perfil: ADMIN = coordenacao, FUNCIONARIO = equipe, RESPONSAVEL = cliente que criou conta no site.
+-- Apagou a PESSOA, o acesso dela vai junto (CASCADE).
+CREATE TABLE ACESSO (
+  cpf        CHAR(11)     NOT NULL,
+  senha_hash VARCHAR(200) NOT NULL,
+  perfil     VARCHAR(12)  NOT NULL,
+  PRIMARY KEY (cpf),
+  CONSTRAINT fk_acesso_pessoa FOREIGN KEY (cpf) REFERENCES PESSOA (cpf) ON DELETE CASCADE,
+  CONSTRAINT ck_acesso_perfil CHECK (perfil IN ('ADMIN', 'FUNCIONARIO', 'RESPONSAVEL'))
+) ENGINE=InnoDB;
+
+-- Checklists pre e pos-evento
+CREATE TABLE CHECKLIST_EVENTO (
+  cod_checklist INT          NOT NULL AUTO_INCREMENT,
+  cod_evento    INT          NOT NULL,
+  tipo          ENUM('PRE','POS') NOT NULL,
+  item          VARCHAR(150) NOT NULL,
+  concluido     BOOLEAN      NOT NULL DEFAULT FALSE,
+  PRIMARY KEY (cod_checklist),
+  CONSTRAINT fk_checklist_evento FOREIGN KEY (cod_evento) REFERENCES EVENTO (cod_evento)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- =====================================================================
+-- TRIGGERS (regras que o CHECK do MySQL nao consegue fazer)
+-- No Workbench o DELIMITER abaixo funciona normalmente.
 -- =====================================================================
 DELIMITER $$
 
--- Data de nascimento não pode ser futura (PESSOA)
+-- Data de nascimento nao pode estar no futuro (PESSOA)
 CREATE TRIGGER trg_pessoa_bi BEFORE INSERT ON PESSOA FOR EACH ROW
 BEGIN
-    IF NEW.data_nascimento > CURRENT_DATE THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data de nascimento não pode ser futura.';
-    END IF;
+  IF NEW.data_nascimento > CURRENT_DATE THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data de nascimento nao pode ser futura.';
+  END IF;
 END$$
 
 CREATE TRIGGER trg_pessoa_bu BEFORE UPDATE ON PESSOA FOR EACH ROW
 BEGIN
-    IF NEW.data_nascimento > CURRENT_DATE THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data de nascimento não pode ser futura.';
-    END IF;
+  IF NEW.data_nascimento > CURRENT_DATE THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data de nascimento nao pode ser futura.';
+  END IF;
 END$$
 
--- Disjunção: uma pessoa não pode ser responsável e funcionário ao mesmo tempo
+-- Disjuncao: uma pessoa nao pode ser RESPONSAVEL e FUNCIONARIO ao mesmo tempo
 CREATE TRIGGER trg_responsavel_bi BEFORE INSERT ON RESPONSAVEL FOR EACH ROW
 BEGIN
-    IF EXISTS (SELECT 1 FROM FUNCIONARIO WHERE cpf = NEW.cpf) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Esta pessoa já é funcionário e não pode ser responsável.';
-    END IF;
-END$$
-
-CREATE TRIGGER trg_responsavel_bu BEFORE UPDATE ON RESPONSAVEL FOR EACH ROW
-BEGIN
-    IF NEW.cpf <> OLD.cpf AND EXISTS (SELECT 1 FROM FUNCIONARIO WHERE cpf = NEW.cpf) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Esta pessoa já é funcionário e não pode ser responsável.';
-    END IF;
+  IF EXISTS (SELECT 1 FROM FUNCIONARIO WHERE cpf = NEW.cpf) THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Esta pessoa ja e funcionario e nao pode ser responsavel.';
+  END IF;
 END$$
 
 CREATE TRIGGER trg_funcionario_bi BEFORE INSERT ON FUNCIONARIO FOR EACH ROW
 BEGIN
-    IF EXISTS (SELECT 1 FROM RESPONSAVEL WHERE cpf = NEW.cpf) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Esta pessoa já é responsável e não pode ser funcionário.';
-    END IF;
+  IF EXISTS (SELECT 1 FROM RESPONSAVEL WHERE cpf = NEW.cpf) THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Esta pessoa ja e responsavel e nao pode ser funcionario.';
+  END IF;
+  IF NEW.cod_supervisor IS NOT NULL AND NEW.cod_supervisor = NEW.cod_funcionario THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Funcionario nao pode supervisionar a si mesmo.';
+  END IF;
 END$$
 
 CREATE TRIGGER trg_funcionario_bu BEFORE UPDATE ON FUNCIONARIO FOR EACH ROW
 BEGIN
-    IF NEW.cpf <> OLD.cpf AND EXISTS (SELECT 1 FROM RESPONSAVEL WHERE cpf = NEW.cpf) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Esta pessoa já é responsável e não pode ser funcionário.';
-    END IF;
-    IF NEW.cod_supervisor IS NOT NULL AND NEW.cod_supervisor = NEW.cod_funcionario THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Um funcionário não pode supervisionar a si mesmo.';
-    END IF;
+  IF NEW.cod_supervisor IS NOT NULL AND NEW.cod_supervisor = NEW.cod_funcionario THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Funcionario nao pode supervisionar a si mesmo.';
+  END IF;
 END$$
 
--- CRIANCA: numeração sequencial por responsável (1, 2, 3...) e data válida
+-- CRIANCA: numera automaticamente (1, 2, 3...) por responsavel quando
+-- o num_sequencial nao e informado; e impede data de nascimento futura
 CREATE TRIGGER trg_crianca_bi BEFORE INSERT ON CRIANCA FOR EACH ROW
 BEGIN
-    IF NEW.data_nascimento > CURRENT_DATE THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data de nascimento não pode ser futura.';
-    END IF;
-    IF NEW.num_sequencial IS NULL OR NEW.num_sequencial = 0 THEN
-        SET NEW.num_sequencial = (SELECT IFNULL(MAX(c.num_sequencial), 0) + 1
-                                  FROM CRIANCA c
-                                  WHERE c.cod_responsavel = NEW.cod_responsavel);
-    END IF;
+  IF NEW.num_sequencial IS NULL OR NEW.num_sequencial = 0 THEN
+    SET NEW.num_sequencial = (SELECT COALESCE(MAX(num_sequencial), 0) + 1
+                              FROM CRIANCA WHERE cod_responsavel = NEW.cod_responsavel);
+  END IF;
+  IF NEW.data_nascimento > CURRENT_DATE THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data de nascimento da crianca nao pode ser futura.';
+  END IF;
 END$$
 
 CREATE TRIGGER trg_crianca_bu BEFORE UPDATE ON CRIANCA FOR EACH ROW
 BEGIN
-    IF NEW.data_nascimento > CURRENT_DATE THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data de nascimento não pode ser futura.';
-    END IF;
+  IF NEW.data_nascimento > CURRENT_DATE THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data de nascimento da crianca nao pode ser futura.';
+  END IF;
 END$$
 
--- RESPONSAVEL_ADICIONAL: diferente do principal e no máximo um por criança
-CREATE TRIGGER trg_resp_adicional_bi BEFORE INSERT ON RESPONSAVEL_ADICIONAL FOR EACH ROW
+-- RESPONSAVEL_ADICIONAL: o adicional deve ser outra pessoa que o principal
+-- e cada crianca so pode ter 1 adicional (maximo de 2 responsaveis)
+CREATE TRIGGER trg_respadic_bi BEFORE INSERT ON RESPONSAVEL_ADICIONAL FOR EACH ROW
 BEGIN
-    IF NEW.cod_responsavel_adicional = NEW.cod_responsavel THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O responsável adicional deve ser diferente do principal.';
-    END IF;
-    IF EXISTS (SELECT 1 FROM RESPONSAVEL_ADICIONAL ra
-               WHERE ra.cod_responsavel = NEW.cod_responsavel
-                 AND ra.num_sequencial  = NEW.num_sequencial) THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'A criança já tem um responsável adicional.';
-    END IF;
+  IF NEW.cod_responsavel_adicional = NEW.cod_responsavel THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O responsavel adicional deve ser diferente do principal.';
+  END IF;
+  IF EXISTS (SELECT 1 FROM RESPONSAVEL_ADICIONAL
+             WHERE cod_responsavel = NEW.cod_responsavel
+               AND num_sequencial  = NEW.num_sequencial) THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'A crianca ja possui 2 responsaveis (limite maximo).';
+  END IF;
 END$$
 
-CREATE TRIGGER trg_resp_adicional_bu BEFORE UPDATE ON RESPONSAVEL_ADICIONAL FOR EACH ROW
+CREATE TRIGGER trg_respadic_bu BEFORE UPDATE ON RESPONSAVEL_ADICIONAL FOR EACH ROW
 BEGIN
-    IF NEW.cod_responsavel_adicional = NEW.cod_responsavel THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O responsável adicional deve ser diferente do principal.';
-    END IF;
+  IF NEW.cod_responsavel_adicional = NEW.cod_responsavel THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O responsavel adicional deve ser diferente do principal.';
+  END IF;
 END$$
 
--- ATENDIMENTO: a data não pode ser futura
+-- ATENDIMENTO: data nao pode ser futura
 CREATE TRIGGER trg_atendimento_bi BEFORE INSERT ON ATENDIMENTO FOR EACH ROW
 BEGIN
-    IF NEW.data > CURRENT_DATE THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'A data do atendimento não pode ser futura.';
-    END IF;
+  IF NEW.data > CURRENT_DATE THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Data do atendimento nao pode ser futura.';
+  END IF;
 END$$
 
-CREATE TRIGGER trg_atendimento_bu BEFORE UPDATE ON ATENDIMENTO FOR EACH ROW
-BEGIN
-    IF NEW.data > CURRENT_DATE THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'A data do atendimento não pode ser futura.';
-    END IF;
-END$$
+-- Cadastro de crianca exige ao menos 1 responsavel: ja garantido pela
+-- propria chave (cod_responsavel faz parte da PK de CRIANCA).
 
 DELIMITER ;
 ```
 
 </details>
 
-**Triggers criados (12):** data de nascimento não futura (PESSOA e CRIANCA); disjunção RESPONSAVEL/FUNCIONARIO; `cod_supervisor` diferente do próprio funcionário; numeração automática `num_sequencial` da CRIANCA; responsável adicional diferente do principal e no máximo um por criança; data do atendimento não futura.
+**Triggers criados (10):** data de nascimento não futura (PESSOA e CRIANCA, na inclusão e na alteração); disjunção RESPONSAVEL/FUNCIONARIO (na inclusão); funcionário não pode supervisionar a si mesmo; numeração automática de `num_sequencial` da CRIANCA; responsável adicional diferente do principal e no máximo um por criança; data do atendimento não futura (na inclusão).
 
 
 ### 4.4. Tecnologias
 
-_Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas._
-
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
-
-<!-- EXEMPLO DO TEMPLATE (mantido para consulta):
-| **Dimensão**   | **Tecnologia**  |
-| ---            | ---             |
-| SGBD           | MySQL           |
-| Front end      | HTML+CSS+JS     |
-| Back end       | Java SpringBoot |
-| Deploy         | Github Pages    |
--->
+As tecnologias usadas no projeto são:
 
 | **Dimensão**   | **Tecnologia**  |
 | ---            | ---             |
 | SGBD           | MySQL 8 (consultas e modelagem no MySQL Workbench) |
 | Front end      | HTML + CSS + JavaScript (requisições com `fetch`) |
-| Back end       | Node.js + Express |
+| Back end       | Node.js (versão 18 ou superior) + Express 5 |
+| Acesso ao banco | `mysql2` (pool de conexões) |
+| Configuração   | `dotenv` (arquivo `.env`) |
+| Senhas e sessão | Hash `scrypt` (módulo `crypto` nativo do Node.js) e sessão por cookie |
 | Controle de versão | Git e GitHub |
 | Modelagem de processos | BPMN (ferramenta da disciplina) |
-| Deploy         | ⚠️ preencher |
+| Deploy         | Execução local |
 
 A figura que mostra como as tecnologias se relacionam é o diagrama da seção [4.1](#41-arquitetura-da-solução).
-
-> ⚠️ **CONFERIR:** versões do Node.js, nome das bibliotecas do `package.json` (por exemplo, a de conexão com o MySQL e a de hash de senha), ferramenta usada no BPMN e no MER. Confirme também o **deploy**: o banco foi rodado localmente no computador do grupo; se houve hospedagem online, informe onde.

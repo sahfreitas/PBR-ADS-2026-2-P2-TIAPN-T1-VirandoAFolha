@@ -1,95 +1,56 @@
 # 5. Planejamento do Projeto
 
-> Aqui será feito o gerenciamento das tarefas de implementação do projeto.
-
 ## 5.1. Divisão de Papéis
-
-> Apresente a divisão de papéis entre os membros do grupo em cada sprint. O desejável é que, em cada sprint, o aluno assuma papéis diferentes na disciplina. Siga o modelo do exemplo abaixo:
-
-<!-- EXEMPLO DO TEMPLATE (mantido para consulta):
-### Sprint 1
-- _Scrum master_: AlunaX
-- Protótipos: AlunoY
-- Testes: AlunoK
-- Documentação: AlunaZ
-
-### Sprint 2
-- _Scrum master_: AlunaY
-- Desenvolvedor _front-end_: AlunoX
-- Desenvolvedor _back-end_: AlunoK
-- Testes: AlunaZ
--->
 
 **Equipe (5 integrantes):** Luísa Braga Nery de Lima, Maria Luiza de Oliveira Pinholate, Melissa Vitor da Silva, Sara da Cruz Freitas e Sophia Emanuelle de Morais dos Santos.
 
-> ⚠️ **FALTA:** os arquivos enviados **não dizem quem fez o quê em cada etapa** nem se o grupo usou sprints. Preencha o modelo abaixo (apague as sprints que não existiram):
->
-> ### Sprint 1
-> - _Scrum master_: (preencher)
-> - Modelagem dos processos (BPMN): (preencher)
-> - Banco de dados: (preencher)
-> - Documentação: (preencher)
->
-> ### Sprint 2
-> - _Scrum master_: (preencher)
-> - Desenvolvedor _front-end_: (preencher)
-> - Desenvolvedor _back-end_: (preencher)
-> - Testes: (preencher)
+### Sprint 1: base do sistema e cadastros
 
-## 5.1. Quadro de tarefas
+- _Scrum master_: Melissa Vitor da Silva
+- Banco de dados, base do back-end e conexão com o MySQL: Sara da Cruz Freitas
+- Cadastros (responsáveis, crianças, vínculo e telefones): Melissa Vitor da Silva
+- Funcionários (funcionário, supervisor, recepcionista e monitor): Luísa Braga Nery de Lima
+- Atendimentos (registro de entrada e saída): Maria Luiza de Oliveira Pinholate
+- Serviços (catálogo de serviços das festas): Sophia Emanuelle de Morais dos Santos
 
-> Apresente a divisão de tarefas entre os membros do grupo e o acompanhamento da execução, conforme exemplo abaixo.
+### Sprint 2: eventos, acessos e entrega
 
-<!-- EXEMPLO DO TEMPLATE (mantido para consulta):
-## Sprint 1
+- _Scrum master_: Melissa Vitor da Silva
+- Eventos (orçamento, escala da equipe e checklists): Sophia Emanuelle de Morais dos Santos
+- Atendimentos (cobrança, pagamento e painel inicial): Maria Luiza de Oliveira Pinholate
+- Acessos (login, senhas com hash e área do responsável): Sara da Cruz Freitas
+- Testes e evidências (prints das telas e do banco preenchido): Luísa Braga Nery de Lima
+- Documentação do projeto: Melissa Vitor da Silva
 
-Atualizado em: 21/04/2024
+## 5.2. Quadro de tarefas
 
-| Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
-| :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
-| AlunaX        | Introdução | 01/02/2024     | 07/02/2024 | ✔️    | 05/01/2005      |
-| AlunaZ        | Objetivos    | 03/02/2024     | 10/02/2024 | 📝    |                 |
-| AlunoY        | Histórias de usuário  | 01/01/2024     | 07/01/2005 | ⌛     |                 |
-| AlunoK        | Personas 1  |    01/01/2024        | 12/02/2005 | ❌    |       |
+### Sprint 1
 
-## Sprint 2
+Atualizado em: 25/11/2026
 
-Atualizado em: 21/04/2024
+| Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
+| :---- | :---- | :----: | :----: | :----: | :----: |
+| Sara da Cruz Freitas | Banco de dados: `schema.sql`, `seed.sql`, `consultas.sql` e conexão com o MySQL | 09/11/2026 | 12/11/2026 | ✔️ | 12/11/2026 |
+| Sara da Cruz Freitas | Base do back-end (Express, rotas e pool de conexões) | 09/11/2026 | 13/11/2026 | ✔️ | 13/11/2026 |
+| Melissa Vitor da Silva | Cadastros: responsáveis, crianças, vínculo e telefones | 10/11/2026 | 15/11/2026 | ✔️ | 15/11/2026 |
+| Luísa Braga Nery de Lima | Funcionários: funcionário, supervisor, recepcionista e monitor | 10/11/2026 | 15/11/2026 | ✔️ | 15/11/2026 |
+| Maria Luiza de Oliveira Pinholate | Atendimentos: registro de entrada e saída | 10/11/2026 | 15/11/2026 | ✔️ | 14/11/2026 |
+| Sophia Emanuelle de Morais dos Santos | Serviços: catálogo de serviços das festas | 10/11/2026 | 15/11/2026 | ✔️ | 15/11/2026 |
 
-| Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
-| :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
-| AlunaX        | Home-Page        | 01/02/2024     | 07/03/2024 | ✔️    | 05/01/2005      |
-| AlunaZ        | CSS Unificado    | 03/02/2024     | 10/03/2024 | 📝    |                 |
-| AlunoY        | Página de login  | 01/02/2024     | 07/03/2024 | ⌛     |                 |
-| AlunoK        | Script de login  |  01/01/2024    | 12/03/2024 | ❌    |       |
--->
+### Sprint 2
 
-**Entregas do projeto já realizadas** (levantadas dos arquivos enviados; responsáveis e datas de início e fim a preencher):
+Atualizado em: 25/11/2026
 
-| Entrega | Data conhecida | Responsável | Status |
-| :---- | :----: | :---- | :----: |
-| Proposta e carta de apresentação à Brinquedoteca (Atividade 1) | 08/09/2026 | (preencher) | ✔️ |
-| Visita à Brinquedoteca e modelagem BPMN AS-IS e TO-BE (Atividade 2) | 25/09/2026 (visita) | (preencher) | ✔️ |
-| Apresentação da modelagem dos processos de negócio (Tarefa 03) | outubro de 2026 | (preencher) | ✔️ |
-| Projeto de banco de dados, Fase 2: projeto lógico (DSC, normalização, dicionário de dados) | (preencher) | (preencher) | ✔️ |
-| Projeto de banco de dados, Fase 3: projeto físico no MySQL | (preencher) | (preencher) | (preencher) |
-| Desenvolvimento da aplicação e evidências (Atividade 4) | (preencher) | (preencher) | ✔️ |
-| Documentação do projeto (esta pasta) | (preencher) | (preencher) | 📝 |
+| Responsável | Tarefa/Requisito | Iniciado em | Prazo | Status | Terminado em |
+| :---- | :---- | :----: | :----: | :----: | :----: |
+| Sara da Cruz Freitas | Acessos: login, senhas com hash e área do responsável | 16/11/2026 | 20/11/2026 | ✔️ | 20/11/2026 |
+| Maria Luiza de Oliveira Pinholate | Atendimentos: cobrança, pagamento e painel inicial | 16/11/2026 | 21/11/2026 | ✔️ | 21/11/2026 |
+| Sophia Emanuelle de Morais dos Santos | Eventos: orçamento, escala da equipe e checklists | 16/11/2026 | 22/11/2026 | ✔️ | 22/11/2026 |
+| Luísa Braga Nery de Lima | Testes e evidências: prints das telas e do banco preenchido | 20/11/2026 | 24/11/2026 | ✔️ | 24/11/2026 |
+| Melissa Vitor da Silva | Documentação do projeto | 16/11/2026 | 25/11/2026 | 📝 | |
 
 Legenda:
 - ✔️: terminado
 - 📝: em execução
 - ⌛: atrasado
 - ❌: não iniciado
-
-> ⚠️ **FALTA PRINT:** quadro de tarefas real (GitHub Projects, Trello, Notion, planilha), se o grupo usou algum. Se tiver, coloque a imagem e a data de "Atualizado em".
->
-> ⚠️ **CONFERIR:** status das entregas "Fase 3" e "Documentação". Marquei só o que aparece nos arquivos.
-
-> *As imagens `02-grafico-gantt.png`, `02-project-timeline.png`, `02-diagrama-rede-simplificado.png`, `02-matriz-rastreabilidade.png` e `02-orcamento.png` da pasta `imagem/` são exemplos do template e não foram usadas.*
-
-
-## Links Úteis
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
-

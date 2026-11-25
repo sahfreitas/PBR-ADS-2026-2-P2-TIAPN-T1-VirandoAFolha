@@ -12,8 +12,6 @@ Hoje a Brinquedoteca não usa um sistema: as fichas de entrada e saída, a cobra
 **Processo 1: atendimento, permanência e saída da criança.** O responsável chega com a criança e solicita o atendimento. A recepção realiza o atendimento, verifica as informações da criança, registra a entrada e encaminha a criança para a brinquedoteca. O monitor recebe a criança e a acompanha durante a permanência. Quando o tempo termina, o monitor libera a criança para retirada e só então a recepção calcula o valor, informa ao responsável e confirma o pagamento. Depois disso a saída é liberada e o responsável retira a criança.
 
 > **Notação dos diagramas:** o responsável (processo 1) e o cliente (processo 2) ficam em uma **piscina separada**, porque estão fora da Brinquedoteca. As raias (Recepção, Monitor, Equipe) ficam dentro da piscina da Brinquedoteca Barreiro. Dentro de uma piscina, as atividades se ligam por **fluxo de sequência** (linha cheia). Entre as piscinas, a comunicação é feita por **fluxo de mensagem** (linha pontilhada).
->
-> ⚠️ **CONFERIR:** estes 4 diagramas foram **redesenhados** (cliente em piscina separada, ligações por mensagem). Para ligar as piscinas foram acrescentados eventos de mensagem (início, envio e espera de resposta). As imagens antigas, com o cliente como raia, estão em `imagem/bpmn-versao-anterior/`. Se a Atividade 02 já foi entregue e avaliada com a versão antiga, avise o professor ou mantenha as duas versões coerentes. Os arquivos editáveis são os `.svg` da pasta `imagem/`.
 
 ![BPMN AS-IS do processo de atendimento](imagem/bpmn-p1-as-is.png "BPMN AS-IS: processo de atendimento da Brinquedoteca")
 
@@ -29,10 +27,6 @@ Hoje a Brinquedoteca não usa um sistema: as fichas de entrada e saída, a cobra
 | 2 | Falta de padronização no orçamento e ausência de repasse estruturado das informações à equipe | A negociação dependia de vários passos manuais e repetições quando a data estava indisponível; depois de registrar os serviços, o evento ia para a equipe sem repasse formal nem checklists | Risco de desencontro sobre o que foi contratado, atrasos no atendimento inicial e falhas na conferência do espaço antes e depois da festa |
 
 ### 3.2. Descrição geral da proposta (Modelagem TO BE)
-
-Tendo identificado os gargalos dos modelos AS IS, apresentem uma descrição da proposta de solução, buscando maior eficiência com a introdução da tecnologia. Abordem também os limites dessa solução e o seu alinhamento com as estratégias e objetivos do contexto de negócio escolhido. 
-Colem aqui os modelos da solução proposta (modelo TO BE) elaborados com o apoio da ferramenta baseada em BPMN utilizada na disciplina.
-Cada processo identificado deve ter seu modelo TO-BE específico. Descrevam as oportunidades de melhoria de cada processo da solução proposta.
 
 A proposta é um sistema web simples, que apoia a equipe sem sobrecarregá-la, com procedimento padronizado de atendimento e registro de horários e dados em um banco único.
 
@@ -57,12 +51,3 @@ A proposta é um sistema web simples, que apoia a equipe sem sobrecarregá-la, c
 [PROCESSO 1 - Atendimento, permanência e saída da criança](./processo/processo-1-atendimento-da-crianca.md "Detalhamento do Processo 1.")
 
 [PROCESSO 2 - Solicitação, contratação e realização de festas e eventos](./processo/processo-2-festas-e-eventos.md "Detalhamento do Processo 2.")
-
-<!-- LINKS DO TEMPLATE (mantidos para consulta; o projeto só tem 2 processos):
-[PROCESSO 3 - Nome do Processo](./processos/processo-3-nome-do-processo.md "Detalhamento do Processo 3.")
-[PROCESSO 4 - Nome do Processo](./processos/processo-4-nome-do-processo.md "Detalhamento do Processo 4.")
--->
-
-> ⚠️ **CONFERIR:** os arquivos `processo-3-nome-do-processo.md` e `processo-4-nome-do-processo.md` ficaram na pasta `processo/` só como modelo. O projeto tem 2 processos; se o professor não exigir 4, apague esses dois arquivos.
-
-> ⚠️ **FALTA:** o BPMN foi feito na ferramenta usada na disciplina. Se existir o arquivo-fonte (`.bpmn`) ou o link do modelo, coloque aqui para facilitar correções.

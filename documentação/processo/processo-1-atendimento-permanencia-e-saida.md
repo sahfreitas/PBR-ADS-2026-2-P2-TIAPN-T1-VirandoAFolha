@@ -231,55 +231,51 @@ O sistema só aceita a confirmação depois que a saída foi registrada ("Regist
 
 ##### 3.3.1.3 Wireframes (user tasks)
 
-As telas abaixo são capturas reais do sistema, feitas na Atividade 4 (citadas pelo número da figura do documento de evidências).
+As telas abaixo são capturas reais do sistema Virando a Folha.
 
-**Entrar no sistema** *(Figura 1)*
+**Entrar no sistema**
 
-![Tela de login com CPF e senha e a lista de usuários de teste](../imagem/wireframes/wireframe-login.png "Wireframe – Entrar no sistema.")
+![Tela de login com CPF e senha e a lista de usuários de teste](../imagem/wireframes/01-login.png "Wireframe – Entrar no sistema.")
 
 - Campos CPF e Senha, botão **Entrar** e o atalho **Crie sua conta**.
 - Lista de funcionários de teste, que preenche o CPF ao clicar.
 
-**Identificar/cadastrar criança** *(Figura 27)*
+**Identificar/cadastrar criança**
 
-![Tela Novo cadastro, com os dados do responsável e o bloco de crianças](../imagem/wireframes/wireframe-p1-novo-cadastro.png "Wireframe – Identificar/cadastrar criança.")
+![Tela Novo cadastro, com os dados do responsável e o bloco de crianças](../imagem/wireframes/06-novo-cadastro.png "Wireframe – Novo cadastro.")
+
+![Tela Clientes, com a busca e a lista de famílias cadastradas](../imagem/wireframes/07-clientes.png "Wireframe – Clientes.")
 
 - Cartão **Responsável** (CPF, nome, sexo, nascimento, telefones e endereço) e cartão **Crianças** (nome, nascimento, segundo responsável e observações).
 - Botões **Adicionar criança**, **Salvar cadastro** e **Cancelar**.
+- Na tela Clientes, a busca aceita nome, CPF, telefone ou nome da criança, e o botão **Novo cadastro** leva ao formulário.
 
-**Registrar horário de entrada** *(Figuras 21 e 22)*
+**Registrar horário de entrada, Receber criança e Acompanhar criança**
 
-![Tela Atendimentos, cartão Registrar entrada vazio](../imagem/wireframes/wireframe-p1-registrar-entrada.png "Wireframe – Registrar entrada (vazio).")
-
-![Tela Atendimentos, cartão Registrar entrada preenchido](../imagem/wireframes/wireframe-p1-entrada-preenchida.png "Wireframe – Registrar entrada (preenchido).")
+![Tela Atendimentos, com o cartão Registrar entrada e o cartão Brincando agora](../imagem/wireframes/04-atendimentos.png "Wireframe – Atendimentos.")
 
 - À esquerda, o formulário com **Criança**, **Recepcionista** e **Monitores que vão acompanhar**, e o botão **Registrar entrada**.
-- À direita, o cartão **Brincando agora**.
+- À direita, o cartão **Brincando agora**, com responsável e telefone, horário de entrada, tempo decorrido, monitores, observações e valor parcial de cada criança.
+- Em cada criança, os botões **Registrar saída** e **Entrada por engano**.
 
-**Receber criança e Acompanhar criança** *(Figura 23)*
+**Registrar horário de saída, Calcular valor e Informar valor**
 
-![Cartão Brincando agora com as crianças presentes, tempo decorrido e valor parcial](../imagem/wireframes/wireframe-p1-criancas-brincando-agora.png "Wireframe – Crianças brincando agora.")
+*Esta atividade usa a janela aberta pelo botão **Registrar saída**, na tela Atendimentos acima; não há captura separada.*
 
-- Para cada criança: responsável e telefone, horário de entrada, tempo decorrido, monitores, observações e valor parcial.
-- Botões **Registrar saída** e **Entrada por engano**.
-
-**Registrar horário de saída, Calcular valor e Informar valor** *(Figura 24)*
-
-![Janela Saída registrada com o valor a cobrar, a permanência, a faixa e o valor da hora](../imagem/wireframes/wireframe-p1-saida-valor-a-cobrar.png "Wireframe – Saída registrada e valor a cobrar.")
-
-- Valor a cobrar em destaque, com permanência, faixa e valor da hora.
+- Janela **Registrar saída**, com o campo opcional "Saiu em outro horário?" e o botão **Calcular e registrar saída**.
+- Janela **Saída registrada**, com o valor a cobrar em destaque, a permanência, a faixa e o valor da hora.
 - Botões **Confirmar pagamento** e **Deixar pendente**.
 
-**Calculadora de valor** *(Figura 26)*
+**Calculadora de valor**
 
-![Aba Calculadora de valor com a tabela rápida e a tabela de preços](../imagem/wireframes/wireframe-p1-calculadora.png "Wireframe – Calculadora de valor e tabela de preços.")
+![Aba Calculadora de valor com a tabela rápida e a tabela de preços](../imagem/wireframes/05-calculadora.png "Wireframe – Calculadora de valor.")
 
 - Entrada, saída, escolha de criança presente e opção **Irmãos (5%)**.
 - Resultado ao lado, com a tabela rápida e a tabela de preços por faixa.
 
-**Confirmar pagamento e Encerrar atendimento** *(Figura 25)*
+**Confirmar pagamento e Encerrar atendimento**
 
-![Aba Histórico com os atendimentos finalizados](../imagem/wireframes/wireframe-p1-historico.png "Wireframe – Histórico de atendimentos.")
+*Esta atividade usa a aba **Histórico** da tela Atendimentos; não há captura separada.*
 
 - Filtro **Mostrar** (Hoje, Pagamento pendente, Todos).
 - Tabela com situação do pagamento e o botão **Confirmar pagamento** nas linhas pendentes.

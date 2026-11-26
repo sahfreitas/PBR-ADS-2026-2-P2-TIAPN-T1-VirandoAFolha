@@ -38,7 +38,6 @@ O navegador carrega as páginas (HTML, CSS e JavaScript) e mostra os módulos co
 ### 4.2. Protótipos de telas
 
 Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
-Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação.md"> Especificação do Projeto</a>.
 
 As interfaces seguem a navegação por menu lateral, que muda conforme o perfil: a equipe vê Início, Atendimentos, Novo cadastro, Clientes, Eventos, Serviços e Funcionários (a recepção e a monitoria veem menos itens), e o responsável vê Início, Meus dados e crianças, Meus eventos e Solicitar evento. Os fluxos mais longos (cadastro de família e evento) são divididos em passos, o que ajuda a padronizar o atendimento. Todas as telas implementadas estão na seção [6. Interface do Sistema](6-Interface-Sistema.md).
 

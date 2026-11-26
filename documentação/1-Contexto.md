@@ -18,7 +18,7 @@ O trabalho foi desenvolvido na disciplina **Trabalho Interdisciplinar: Aplicaç�
 
 ## Problema
 
-**Contexto.** A Brinquedoteca Barreiro atua em recreação e entretenimento infantil e fica na Rua Rodolfo Jacob, 76, bairro Barreiro, em Belo Horizonte. A equipe é formada por coordenação, recepção e monitoria. Hoje as fichas de entrada e saída, a cobrança por tempo, os orçamentos de festas e a escala da equipe são controlados em papel.
+**Contexto.** A Brinquedoteca Barreiro atua em recreação e entretenimento infantil e fica na Rua Rodolfo Jacob, 76, bairro Barreiro, em Belo Horizonte. A equipe é formada por coordenação, recepção e monitoria. Hoje as fichas de entrada e saída, a cobrança por tempo, os orçamentos de festas e a escala da equipe ainda dependem de etapas manuais e de anotações em papel.
 
 **Como o problema foi levantado.** O grupo enviou uma carta de apresentação (08/09/2026), fez uma visita com reunião com a equipe em 25/09/2026, observou o dia a dia e conversou com os responsáveis. Dessa observação saíram dois processos com excesso de tarefas manuais e idas e vindas entre as pessoas envolvidas:
 
@@ -47,9 +47,15 @@ O trabalho foi desenvolvido na disciplina **Trabalho Interdisciplinar: Aplicaç�
 
 A observação dos processos na prática mostrou que o BPMN deixa gargalos e retrabalho visíveis, e que melhorar nem sempre exige tecnologia complexa: padronizar o atendimento, registrar horários e usar checklists já reduz erros. Por isso a solução foi pensada para a realidade da Brinquedoteca e evita recursos desnecessariamente complexos.
 
-O sistema também dá aos responsáveis um canal próprio para cadastrar as crianças e pedir o orçamento da festa sem sair de casa, o que tira trabalho do balcão. Os ganhos esperados vêm da análise dos processos e **ainda não foram medidos na prática**.
+O sistema também dá aos responsáveis um canal próprio para cadastrar as crianças e pedir o orçamento da festa sem sair de casa, o que tira trabalho do balcão.
 
-> ⚠️ **FALTA:** o template sugere apoiar a justificativa em questionário, entrevista ou dados estatísticos. Se o grupo tiver anotações da reunião de 25/09/2026 (ou respostas da equipe), resuma-as aqui.
+**Base de evidências.** A justificativa parte de dois levantamentos feitos pelo grupo na própria Brinquedoteca Barreiro: o relatório técnico da disciplina de Modelagem de Processos de Negócio, baseado em análise documental do portal oficial, troca de mensagens e visita presencial, e a visita de 25/09/2026, que gerou os modelos BPMN AS-IS e TO-BE deste trabalho.
+
+No relatório, o fluxo do brincar livre se mostrou mais complexo do que parece. A cobrança combina contagem exata por minuto, tabela regressiva (de R$ 35,00 a R$ 28,00 por hora), desconto de 5% para irmãos e pacotes de 10 horas, com validade de 30 dias e sem uso aos sábados, feriados, férias e recesso. Sem apoio de um sistema integrado, isso aumenta o risco de lentidão e de erro no fechamento da conta. O relatório também apontou a incerteza das famílias sobre a disponibilidade da casa, que fecha para festas e visitas escolares, e a retirada da criança por pessoas combinadas de modo informal, sem registro centralizado.
+
+A visita de 25/09/2026 mostrou o outro lado: orçamentos de festa sem padrão e sem repasse formal das informações à equipe. Esses problemas sustentam as principais funcionalidades do sistema, que são o registro de entrada e saída com cálculo automático do valor, o controle de pagamento, o orçamento padronizado e o acesso por perfil.
+
+O grupo não aplicou questionários nem levantou dados estatísticos. Por isso, os ganhos esperados vêm da análise dos processos e ainda não foram medidos na prática.
 
 ## Público-Alvo
 

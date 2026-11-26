@@ -234,62 +234,64 @@ Itens padrão gerados na confirmação:
 
 ##### 3.3.2.3 Wireframes (user tasks)
 
-As telas abaixo são capturas reais do sistema, feitas na Atividade 4 (citadas pelo número da figura do documento de evidências).
+As telas abaixo são capturas reais do sistema Virando a Folha.
 
-**Criar conta** *(Figura 2)*
+**Criar conta**
 
-![Tela Criar conta do responsável, com dados pessoais, endereço, telefones e senha](../imagem/wireframes/wireframe-criar-conta.png "Wireframe – Criar conta.")
+![Tela Criar conta do responsável, com dados pessoais, endereço, telefones e senha](../imagem/wireframes/02-criar-conta.png "Wireframe – Criar conta.")
 
 - Dados pessoais, endereço, telefones, senha e confirmação da senha.
 - Botão **Criar conta** e link **Entrar**.
 
-**Registrar informações do evento – cliente** *(Figuras 12, 13 e 14)*
+**Registrar informações do evento – cliente**
 
-![Solicitar evento, passo 1, formulário vazio](../imagem/wireframes/wireframe-p2-solicitar-evento-dados.png "Wireframe – Solicitar evento, passo 1 (vazio).")
-
-![Solicitar evento, passo 1, dados preenchidos](../imagem/wireframes/wireframe-p2-solicitar-evento-dados-preenchidos.png "Wireframe – Solicitar evento, passo 1 (preenchido).")
-
-![Solicitar evento, passo 2, briefing](../imagem/wireframes/wireframe-p2-solicitar-evento-briefing.png "Wireframe – Solicitar evento, passo 2 (briefing).")
+![Tela Solicitar evento na área do responsável](../imagem/wireframes/16-responsavel-solicitar-evento.png "Wireframe – Solicitar evento (responsável).")
 
 - Indicador de etapas no alto, campos do passo e botões **Voltar** e **Próximo**.
-- Aviso de agenda aparece abaixo da data quando já existe festa no dia.
+- Aviso de agenda abaixo da data quando já existe festa no dia.
+- Para o cliente, o último passo é o de serviços e o botão final é **Enviar solicitação**.
 
-**Acompanhar a solicitação – cliente** *(Figura 15)*
+**Acompanhar a solicitação – cliente**
 
-![Início do responsável com o evento Em análise](../imagem/wireframes/wireframe-p2-evento-em-analise-responsavel.png "Wireframe – Evento em análise na área do responsável.")
+![Tela inicial do responsável](../imagem/wireframes/14-responsavel-inicio.png "Wireframe – Início do responsável.")
 
-**Registrar informações do evento e Consultar agenda – recepção** *(Figuras 33 e 34)*
+**Registrar informações do evento e Consultar agenda – recepção**
 
-![Evento, passo 1, dados da festa](../imagem/wireframes/wireframe-p2-evento-passo1-dados.png "Wireframe – Evento, passo 1 (dados da festa).")
+![Tela Evento, passo 1, dados da festa](../imagem/wireframes/09-evento-dados.png "Wireframe – Evento, dados da festa.")
 
-![Evento, passo 2, briefing](../imagem/wireframes/wireframe-p2-evento-passo2-briefing.png "Wireframe – Evento, passo 2 (briefing).")
+- Passo 1, com responsável, data, horário, convidados e endereço, e o aviso de agenda abaixo da data.
+- Passo 2, com a ficha de briefing (tema e observações).
 
-**Selecionar serviços e Elaborar orçamento** *(Figura 35)*
+**Selecionar serviços e Elaborar orçamento**
 
-![Evento, passo 3, serviços e total do orçamento](../imagem/wireframes/wireframe-p2-evento-passo3-servicos.png "Wireframe – Evento, passo 3 (serviços e total do orçamento).")
+![Tela Evento, passo 3, serviços e total do orçamento](../imagem/wireframes/10-evento-servicos.png "Wireframe – Evento, serviços e total do orçamento.")
+
+![Tela Serviços, com o catálogo de serviços contratáveis](../imagem/wireframes/13-servicos.png "Wireframe – Catálogo de serviços.")
 
 - Linhas de serviço com quantidade, valor unitário e total da linha, e o **Total do orçamento** no rodapé.
 - Botão **Adicionar serviço**.
+- O catálogo de onde vêm os serviços é mantido na tela **Serviços**.
 
-**Disponibilizar informações para equipe** *(Figuras 36 e 37)*
+**Analisar orçamento e acompanhar eventos**
 
-![Evento, passo 4, equipe vazia](../imagem/wireframes/wireframe-p2-evento-passo4-equipe.png "Wireframe – Evento, passo 4 (equipe vazia).")
-
-![Equipe escalada com função e horário de chegada](../imagem/wireframes/wireframe-p2-equipe-escalada.png "Wireframe – Equipe escalada.")
-
-**Analisar orçamento e acompanhar eventos** *(Figura 30)*
-
-![Lista de eventos com filtros por situação](../imagem/wireframes/wireframe-p2-lista-eventos.png "Wireframe – Lista de eventos.")
+![Tela Eventos, com a lista e os filtros por situação](../imagem/wireframes/08-eventos-lista.png "Wireframe – Lista de eventos.")
 
 - Abas **Todos**, **Orçamentos**, **Confirmados** e **Cancelados**, e tabela com data, tema, responsável, convidados, valor e situação.
 
-**Confirmar reserva** *(Figura 38)*
+**Confirmar reserva**
 
-![Janela Confirmar este evento](../imagem/wireframes/wireframe-p2-confirmacao-evento.png "Wireframe – Confirmação do evento.")
+*Esta atividade usa a janela "Confirmar este evento?", aberta pelo botão **Confirmar evento** na tela do evento; não há captura separada.*
 
-**Realizar checklist pré-evento e pós-evento** *(Figura 39)*
+- Janela com o aviso de que o orçamento foi aprovado pela família e de que os checklists serão gerados.
+- Botões **Confirmar evento** e **Cancelar**.
 
-![Evento confirmado com os checklists de antes e depois da festa](../imagem/wireframes/wireframe-p2-evento-confirmado-checklists.png "Wireframe – Evento confirmado com checklists.")
+**Disponibilizar informações para equipe e Realizar checklists pré e pós-evento**
 
+![Tela Evento confirmado, com a equipe escalada e os checklists](../imagem/wireframes/11-evento-equipe-checklists.png "Wireframe – Evento com equipe e checklists.")
+
+![Tela inicial da equipe](../imagem/wireframes/03-inicio-equipe.png "Wireframe – Início da equipe.")
+
+- Equipe escalada, com função na festa e horário de chegada.
 - Duas colunas, **Antes da festa** e **Depois da festa**, com caixas de marcar.
 - Campo **Novo item** com botão **Adicionar** em cada coluna.
+- No início de cada funcionário escalado aparece a **Minha escala**, com os eventos, o horário de chegada e os itens pendentes.
